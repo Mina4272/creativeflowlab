@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LYRA Creative Universe</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="stage" aria-label="LYRA Creative Universe">
+      <h1 class="sr-only">LYRA Creative Universe</h1>
+      <button class="light-toggle" type="button" aria-pressed="false">
+        <span class="light-toggle-icon" aria-hidden="true"></span>
+        <span class="light-toggle-text">LIGHT OFF</span>
+      </button>
+
+      <nav class="nav-hotspots" aria-label="Primary">
+        <a class="hotspot nav-home" href="#home">Home</a>
+        <a class="hotspot nav-vizion" href="http://localhost:5175/">Vizion System</a>
+        <a class="hotspot nav-calendar" href="http://127.0.0.1:4173/page-cumulative.html">Daily Calendar</a>
+        <a class="hotspot nav-music" href="#music">Music</a>
+        <a class="hotspot nav-writing" href="#writing">Writing</a>
+        <a class="hotspot nav-brand" href="file:///Users/yuchieh/Documents/Codex/2026-06-30/svg-assets-html-css-assets/outputs/flow-impact/index.html">Brand &amp; Website</a>
+        <a class="hotspot nav-articles" href="#articles">Articles</a>
+        <a class="hotspot nav-consultation" href="#consultation">Consultation</a>
+      </nav>
+
+      <section class="hero-logo" id="home" aria-label="LYRA Creative Universe">
+        <div class="logo-rule left-rule"></div>
+        <div class="logo-rule right-rule"></div>
+        <div class="logo-orb left-orb"></div>
+        <div class="logo-orb right-orb"></div>
+        <p class="hello">Hello</p>
+        <div class="lyra-panel">
+          <span class="lyra-word" aria-label="LYRA">
+            <span class="lyra-letter">L</span><span class="lyra-letter">Y</span><span class="lyra-letter">R</span><span class="lyra-letter">A</span>
+          </span>
+        </div>
+        <div class="short-line" aria-hidden="true"></div>
+        <p class="universe">Creative Universe</p>
+      </section>
+
+      <section class="portrait-scene" aria-label="Portrait">
+        <img src="assets/portrait-scene.png" alt="">
+      </section>
+
+      <section class="folder-grid" aria-label="Creative sections">
+        <a class="folder folder-vizion" id="vizion-system" href="http://localhost:5175/">
+          <img src="assets/folder-vizion-icon.png" alt="">
+          <span>Vizion System</span>
+        </a>
+        <a class="folder folder-calendar" id="daily-calendar" href="http://127.0.0.1:4173/page-cumulative.html">
+          <img src="assets/folder-calendar-icon.png" alt="">
+          <span>Daily<br>Calendar</span>
+        </a>
+        <a class="folder folder-music" id="music" href="#music">
+          <img src="assets/folder-music-icon.png" alt="">
+          <span>Music</span>
+        </a>
+        <a class="folder folder-writing" id="writing" href="#writing">
+          <img src="assets/folder-writing-icon.png" alt="">
+          <span>Writing</span>
+        </a>
+        <a class="folder folder-brand" id="brand-website" href="file:///Users/yuchieh/Documents/Codex/2026-06-30/svg-assets-html-css-assets/outputs/flow-impact/index.html">
+          <img src="assets/folder-brand-icon.png" alt="">
+          <span>Brand &amp;<br>Website</span>
+        </a>
+        <a class="folder folder-articles" id="articles" href="#articles">
+          <img src="assets/folder-articles-icon.png" alt="">
+          <span>Articles</span>
+        </a>
+        <a class="folder folder-loveu-rabbit" id="loveu-rabbit" href="#loveu-rabbit">
+          <img src="assets/folder-consultation-icon.png" alt="">
+          <span>LoveU兔</span>
+        </a>
+        <a class="folder folder-consultation" id="consultation" href="#consultation">
+          <img src="assets/folder-consultation-icon.png" alt="">
+          <span>Consultation</span>
+        </a>
+      </section>
+
+      <form class="message-form" action="#" aria-label="Send Message">
+        <label class="sr-only" for="message">Send Message</label>
+        <input id="message" name="message" type="text" autocomplete="off" aria-label="Send Message" placeholder="What's on your mind?">
+        <button type="submit" aria-label="Send message">
+          <img src="assets/send-plane-icon.png" alt="">
+        </button>
+      </form>
+
+      <p class="credit">BY LYRA</p>
+      <audio id="bubble-pop-sound" src="assets/glossy-bubble-pop.wav" preload="auto"></audio>
+    </main>
+  </body>
+</html>

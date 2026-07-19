@@ -1,0 +1,765 @@
+:root {
+  --design-width: 1200;
+  --design-height: 2132;
+  --blue: #3948ff;
+  --nav-size: min(1.68vw, 20px);
+  --label-size: min(2vw, 24px);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  min-height: 100%;
+  background: #eeeeeb url("assets/wall-texture-1200.png") center top / min(100vw, 1200px) auto repeat-y;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  display: grid;
+  place-items: start center;
+  color: #111;
+  font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  transition: background-color 180ms ease;
+}
+
+body.is-dark {
+  background: #02051d;
+}
+
+.stage {
+  position: relative;
+  width: min(100vw, 1200px);
+  aspect-ratio: var(--design-width) / var(--design-height);
+  min-height: min(177.6667vw, 2132px);
+  overflow: hidden;
+  background: url("assets/wall-texture-1200.png") center top / 100% 100% no-repeat;
+  box-shadow: 0 0 36px rgba(40, 40, 40, 0.08);
+  transition: background 220ms ease, box-shadow 220ms ease;
+}
+
+.stage::before,
+.stage::after {
+  position: absolute;
+  pointer-events: none;
+}
+
+.stage.is-dark {
+  background:
+    radial-gradient(circle at 52% 37%, rgba(132, 58, 255, 0.28), transparent 34%),
+    linear-gradient(180deg, rgba(2, 4, 25, 0.1), rgba(5, 1, 30, 0.72)),
+    url("assets/dark-room-bg.png") center top / 100% 100% no-repeat;
+  box-shadow: 0 0 42px rgba(115, 69, 255, 0.28);
+}
+
+.stage.is-dark::before {
+  content: "";
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 3% 22%, rgba(111, 132, 255, 0.78) 0 0.12%, transparent 0.2%),
+    radial-gradient(circle at 61% 12%, rgba(255, 110, 244, 0.8) 0 0.1%, transparent 0.18%),
+    radial-gradient(circle at 35% 35%, rgba(255, 89, 242, 0.85) 0 0.12%, transparent 0.22%),
+    radial-gradient(circle at 52% 42%, rgba(114, 159, 255, 0.65) 0 0.1%, transparent 0.2%),
+    linear-gradient(90deg, rgba(11, 19, 63, 0.68) 0 23.7%, transparent 23.7%),
+    linear-gradient(180deg, transparent 0 96.8%, rgba(196, 178, 216, 0.86) 96.8% 100%);
+  opacity: 0.82;
+}
+
+.stage.is-dark::after {
+  content: "Start     LYRA Universe";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  height: 2.44%;
+  padding-left: min(2vw, 24px);
+  display: flex;
+  align-items: center;
+  color: #111;
+  background: linear-gradient(180deg, #cfc9dc, #a79fbf);
+  border-top: min(0.18vw, 2px) solid #efe8ff;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: min(1.55vw, 18px);
+  box-shadow: 0 -1px 18px rgba(242, 87, 255, 0.2);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hotspot,
+.folder {
+  position: absolute;
+  z-index: 5;
+  display: block;
+  color: #111;
+  text-decoration: none;
+  text-transform: uppercase;
+  outline: 0;
+  transition: background-color 130ms ease, box-shadow 130ms ease;
+}
+
+.hotspot:focus,
+.folder:focus,
+.message-form input:focus,
+.message-form button:focus {
+  outline: 0;
+}
+
+.hotspot:hover,
+.hotspot.is-hovered,
+.folder:hover,
+.folder.is-hovered {
+  background: rgba(70, 185, 255, 0.18);
+  box-shadow: 0 0 min(1.84vw, 22px) rgba(70, 185, 255, 0.12);
+}
+
+.light-toggle {
+  position: absolute;
+  right: 2.55%;
+  top: 5.42%;
+  z-index: 20;
+  width: 12.1%;
+  height: 2.75%;
+  padding: 0 min(0.65vw, 8px);
+  border: min(0.16vw, 2px) solid rgba(45, 45, 45, 0.56);
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: min(0.55vw, 7px);
+  color: #111;
+  background: rgba(242, 242, 239, 0.72);
+  font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  font-size: min(1.16vw, 14px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0;
+  cursor: pointer;
+  outline: 0;
+  text-transform: uppercase;
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.light-toggle:focus {
+  outline: 0;
+}
+
+.light-toggle:hover {
+  background: rgba(70, 185, 255, 0.18);
+  box-shadow: 0 0 min(1.84vw, 22px) rgba(70, 185, 255, 0.16);
+}
+
+.light-toggle-icon {
+  width: min(1.15vw, 14px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #111;
+  box-shadow: inset 0 0 0 min(0.18vw, 2px) rgba(255, 255, 255, 0.4);
+}
+
+.nav-hotspots {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.nav-hotspots .hotspot {
+  top: 2.25%;
+  height: 2.15%;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  font-size: var(--nav-size);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0;
+  white-space: nowrap;
+  pointer-events: auto;
+}
+
+.nav-home {
+  left: 2.25%;
+  width: 6.35%;
+}
+
+.nav-home::after {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: 2%;
+  height: min(0.34vw, 4px);
+  background: #111;
+}
+
+.nav-vizion {
+  left: 11.6%;
+  width: 13.1%;
+}
+
+.nav-calendar {
+  left: 26%;
+  width: 15.25%;
+}
+
+.nav-music {
+  left: 42.15%;
+  width: 7.1%;
+}
+
+.nav-writing {
+  left: 50.2%;
+  width: 8.75%;
+}
+
+.nav-brand {
+  left: 59.55%;
+  width: 17.35%;
+}
+
+.nav-articles {
+  left: 77.6%;
+  width: 8.7%;
+}
+
+.nav-consultation {
+  left: 87%;
+  width: 11.25%;
+}
+
+.hero-logo {
+  position: absolute;
+  left: 22.2%;
+  top: 7.72%;
+  width: 55.8%;
+  height: 18.2%;
+  z-index: 3;
+}
+
+.hello {
+  position: absolute;
+  left: 0;
+  top: 4%;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  color: #050505;
+  font-family: "Snell Roundhand", "Brush Script MT", cursive;
+  font-size: min(5.4vw, 65px);
+  line-height: 1;
+  transform: rotate(-4deg);
+}
+
+.lyra-panel {
+  position: absolute;
+  left: 8.2%;
+  top: 24.8%;
+  width: 82.8%;
+  height: 42%;
+  display: grid;
+  place-items: center;
+  background: rgba(213, 213, 215, 0.76);
+}
+
+.lyra-word {
+  color: #090c45;
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: min(11.6vw, 139px);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.lyra-letter {
+  display: inline-block;
+  opacity: 0;
+  animation-delay: 180ms;
+  animation-duration: 2.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(1, end);
+}
+
+.lyra-letter:nth-child(1) {
+  animation-name: lyra-letter-l;
+}
+
+.lyra-letter:nth-child(2) {
+  animation-name: lyra-letter-y;
+}
+
+.lyra-letter:nth-child(3) {
+  animation-name: lyra-letter-r;
+}
+
+.lyra-letter:nth-child(4) {
+  animation-name: lyra-letter-a;
+}
+
+@keyframes lyra-letter-l {
+  0%,
+  13.99%,
+  82.01%,
+  100% {
+    opacity: 0;
+  }
+
+  14%,
+  82% {
+    opacity: 1;
+  }
+}
+
+@keyframes lyra-letter-y {
+  0%,
+  21.99%,
+  82.01%,
+  100% {
+    opacity: 0;
+  }
+
+  22%,
+  82% {
+    opacity: 1;
+  }
+}
+
+@keyframes lyra-letter-r {
+  0%,
+  29.99%,
+  82.01%,
+  100% {
+    opacity: 0;
+  }
+
+  30%,
+  82% {
+    opacity: 1;
+  }
+}
+
+@keyframes lyra-letter-a {
+  0%,
+  37.99%,
+  82.01%,
+  100% {
+    opacity: 0;
+  }
+
+  38%,
+  82% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lyra-letter {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+.logo-rule {
+  position: absolute;
+  width: min(0.68vw, 8px);
+  border-radius: 999px;
+  background: var(--blue);
+}
+
+.left-rule {
+  left: 3.4%;
+  top: 11.2%;
+  height: 56%;
+}
+
+.right-rule {
+  right: 4.3%;
+  top: 25.2%;
+  height: 54.2%;
+}
+
+.logo-orb {
+  position: absolute;
+  width: 11.8%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #2b58ff, #3a26df);
+}
+
+.left-orb {
+  left: -1.8%;
+  top: 0;
+}
+
+.right-orb {
+  right: -0.2%;
+  bottom: 9.8%;
+}
+
+.short-line {
+  position: absolute;
+  left: 11.4%;
+  top: 75.6%;
+  width: 22%;
+  height: min(0.34vw, 4px);
+  background: #111;
+}
+
+.universe {
+  position: absolute;
+  left: 34.5%;
+  top: 68.6%;
+  min-width: 50%;
+  margin: 0;
+  padding: min(1vw, 12px) min(1.7vw, 20px);
+  border: min(0.25vw, 3px) solid var(--blue);
+  border-radius: 999px;
+  color: var(--blue);
+  background: rgba(246, 246, 245, 0.36);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: min(2.75vw, 33px);
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.portrait-scene {
+  position: absolute;
+  left: 17.85%;
+  top: 28.14%;
+  width: 62.17%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.portrait-scene img,
+.folder img,
+.message-form button img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.folder-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+}
+
+.folder {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  padding: min(0.8vw, 10px);
+  border-radius: min(1vw, 12px);
+  font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  font-size: var(--label-size);
+  font-weight: 900;
+  line-height: 1.14;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.folder span {
+  display: block;
+  margin-top: min(0.5vw, 6px);
+  text-shadow: 0 min(0.08vw, 1px) 0 rgba(255, 255, 255, 0.45);
+}
+
+.folder-vizion {
+  left: 11.6%;
+  top: 26.35%;
+  width: 17.2%;
+  transform: rotate(8deg);
+}
+
+.folder-calendar {
+  left: 71.7%;
+  top: 28.55%;
+  width: 17.3%;
+}
+
+.folder-music {
+  left: 3.9%;
+  top: 45.55%;
+  width: 13.9%;
+  transform: rotate(-1deg);
+}
+
+.folder-writing {
+  left: 79.8%;
+  top: 47.65%;
+  width: 15.1%;
+  transform: rotate(8deg);
+}
+
+.folder-brand {
+  left: 8.8%;
+  top: 64.05%;
+  width: 16.3%;
+  transform: rotate(-5deg);
+}
+
+.folder-articles {
+  left: 73.8%;
+  top: 63.8%;
+  width: 16.2%;
+  transform: rotate(8deg);
+}
+
+.folder-loveu-rabbit {
+  left: 27.9%;
+  top: 76.2%;
+  width: 13.9%;
+  transform: rotate(-3deg);
+}
+
+.folder-consultation {
+  left: 57.7%;
+  top: 75.6%;
+  width: 13.9%;
+}
+
+.message-form {
+  position: absolute;
+  left: 15.35%;
+  top: 85.32%;
+  width: 70.2%;
+  height: 5.55%;
+  z-index: 8;
+  margin: 0;
+}
+
+.message-form input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 88.8%;
+  height: 81%;
+  padding: 0 5.6%;
+  border: min(0.25vw, 3px) solid rgba(70, 70, 70, 0.68);
+  border-radius: 999px;
+  background: transparent;
+  color: #111;
+  caret-color: #111;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: min(3vw, 36px);
+  appearance: none;
+}
+
+.message-form input::placeholder {
+  color: transparent;
+}
+
+.message-form button {
+  position: absolute;
+  right: 0;
+  top: 5%;
+  width: 8.2%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.credit {
+  position: absolute;
+  left: 0;
+  top: 91.86%;
+  width: 100%;
+  z-index: 8;
+  margin: 0;
+  color: #111;
+  font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  font-size: min(2.35vw, 28px);
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  letter-spacing: 0;
+}
+
+.stage.is-dark .light-toggle {
+  color: #ffd8ff;
+  border-color: rgba(255, 107, 246, 0.88);
+  background: rgba(22, 9, 64, 0.76);
+  box-shadow:
+    0 0 min(1.7vw, 20px) rgba(255, 93, 245, 0.36),
+    inset 0 0 min(1vw, 12px) rgba(82, 130, 255, 0.24);
+  text-shadow: 0 0 min(0.7vw, 8px) rgba(255, 117, 250, 0.72);
+}
+
+.stage.is-dark .light-toggle:hover {
+  background: rgba(255, 89, 242, 0.18);
+}
+
+.stage.is-dark .light-toggle-icon {
+  background: #ff61f4;
+  box-shadow:
+    0 0 min(0.95vw, 11px) rgba(255, 93, 245, 0.94),
+    0 0 min(1.8vw, 22px) rgba(87, 142, 255, 0.7);
+}
+
+.stage.is-dark .hotspot,
+.stage.is-dark .folder {
+  color: #dec4ff;
+  text-shadow:
+    0 0 min(0.65vw, 8px) rgba(255, 101, 244, 0.82),
+    0 0 min(1.4vw, 17px) rgba(76, 139, 255, 0.58);
+}
+
+.stage.is-dark .hotspot:hover,
+.stage.is-dark .hotspot.is-hovered,
+.stage.is-dark .folder:hover,
+.stage.is-dark .folder.is-hovered {
+  background: rgba(255, 93, 245, 0.16);
+  box-shadow:
+    0 0 min(1.5vw, 18px) rgba(255, 93, 245, 0.32),
+    inset 0 0 min(1.2vw, 14px) rgba(90, 149, 255, 0.18);
+}
+
+.stage.is-dark .nav-home {
+  color: #ff7cf6;
+}
+
+.stage.is-dark .nav-home::after,
+.stage.is-dark .short-line {
+  background: #ff5ff4;
+  box-shadow: 0 0 min(0.95vw, 11px) rgba(255, 93, 245, 0.88);
+}
+
+.stage.is-dark .hello {
+  color: #ff70f7;
+  text-shadow:
+    0 0 min(0.9vw, 11px) rgba(255, 98, 245, 0.82),
+    0 0 min(2.2vw, 26px) rgba(255, 98, 245, 0.48);
+}
+
+.stage.is-dark .lyra-panel {
+  background: linear-gradient(90deg, rgba(17, 12, 52, 0.88), rgba(30, 16, 70, 0.62));
+  box-shadow: 0 0 min(2.1vw, 25px) rgba(92, 119, 255, 0.22);
+}
+
+.stage.is-dark .lyra-word {
+  color: #ff62ef;
+  filter: none;
+}
+
+.stage.is-dark .lyra-letter {
+  color: #ff62ef;
+  background: linear-gradient(90deg, #ff53ef 4%, #ff83f8 34%, #7b71ff 68%, #62b0ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 0 min(0.55vw, 7px) rgba(255, 104, 245, 0.9),
+    0 0 min(1.35vw, 16px) rgba(255, 95, 244, 0.7),
+    0 0 min(2.2vw, 26px) rgba(85, 143, 255, 0.62);
+  filter:
+    drop-shadow(0 0 min(0.7vw, 8px) rgba(255, 103, 245, 0.92))
+    drop-shadow(0 0 min(1.6vw, 19px) rgba(84, 142, 255, 0.76));
+}
+
+.stage.is-dark .logo-rule {
+  background: linear-gradient(180deg, #ff60f4, #5ba3ff);
+  box-shadow:
+    0 0 min(0.7vw, 8px) rgba(255, 92, 244, 0.78),
+    0 0 min(1.5vw, 18px) rgba(80, 146, 255, 0.5);
+}
+
+.stage.is-dark .logo-orb {
+  background: radial-gradient(circle at 34% 29%, #a56cff, #5529e6 66%, #243edc);
+  box-shadow:
+    0 0 min(1vw, 12px) rgba(255, 91, 245, 0.76),
+    0 0 min(2.4vw, 29px) rgba(86, 146, 255, 0.54);
+}
+
+.stage.is-dark .universe {
+  color: #83a9ff;
+  border-color: #5d8cff;
+  background: rgba(8, 7, 48, 0.62);
+  box-shadow:
+    0 0 min(0.75vw, 9px) rgba(85, 143, 255, 0.8),
+    inset 0 0 min(1vw, 12px) rgba(85, 143, 255, 0.18);
+  text-shadow: 0 0 min(0.75vw, 9px) rgba(101, 154, 255, 0.9);
+}
+
+.stage.is-dark .portrait-scene {
+  filter: none;
+}
+
+.stage.is-dark .portrait-scene::before {
+  content: none;
+  position: absolute;
+  left: 7.43%;
+  top: 26.94%;
+  width: 85.14%;
+  height: 48.73%;
+  z-index: 1;
+  border: min(0.24vw, 3px) solid #8c65ff;
+  box-shadow:
+    0 0 min(1vw, 12px) rgba(255, 91, 245, 0.72),
+    0 0 min(2.4vw, 28px) rgba(91, 143, 255, 0.58);
+}
+
+.stage.is-dark .portrait-scene img {
+  position: relative;
+  z-index: 2;
+  filter: none;
+}
+
+.stage.is-dark .folder img {
+  filter: none;
+}
+
+.stage.is-dark .folder span {
+  text-shadow:
+    0 0 min(0.6vw, 7px) rgba(255, 102, 246, 0.86),
+    0 0 min(1.3vw, 16px) rgba(94, 151, 255, 0.58);
+}
+
+.stage.is-dark .message-form input {
+  border-color: #d263ff;
+  color: #efd9ff;
+  caret-color: #ff78f7;
+  background: rgba(9, 5, 42, 0.44);
+  box-shadow:
+    0 0 min(1vw, 12px) rgba(255, 94, 244, 0.52),
+    inset 0 0 min(1.4vw, 17px) rgba(101, 143, 255, 0.16);
+}
+
+.stage.is-dark .message-form input::placeholder {
+  color: rgba(224, 196, 255, 0.58);
+}
+
+.stage.is-dark .message-form button img {
+  filter:
+    invert(80%)
+    sepia(91%)
+    saturate(3368%)
+    hue-rotate(210deg)
+    brightness(1.12)
+    drop-shadow(0 0 min(0.7vw, 8px) rgba(255, 94, 244, 0.82));
+}
+
+.stage.is-dark .credit {
+  color: #ff7cf6;
+  text-shadow:
+    0 0 min(0.65vw, 8px) rgba(255, 103, 245, 0.9),
+    0 0 min(1.4vw, 17px) rgba(255, 103, 245, 0.48);
+}

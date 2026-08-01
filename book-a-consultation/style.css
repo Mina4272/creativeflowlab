@@ -556,6 +556,16 @@
     inset 0 0 min(1.2vw, 14px) rgba(90, 149, 255, 0.18);
 }
 
+.consultation-page.is-dark .project-pill {
+  color: #5f73ff;
+  border-color: #4057ff;
+  background: rgba(112, 112, 124, 0.5);
+  box-shadow:
+    0 0 min(1.2vw, 14px) rgba(64, 87, 255, 0.42),
+    inset 0 0 min(1.4vw, 17px) rgba(126, 142, 255, 0.14);
+  text-shadow: 0 0 min(0.65vw, 8px) rgba(75, 100, 255, 0.42);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     transition-duration: 0.01ms !important;

@@ -441,11 +441,11 @@ body.is-dark {
 
 .language-toggle {
   position: absolute;
-  left: 87.6%;
-  top: 70.4%;
-  z-index: 9;
-  width: min(4.45vw, 53px);
-  height: min(3.05vw, 37px);
+  right: 0.05%;
+  top: 5.42%;
+  z-index: 20;
+  width: min(2.5vw, 30px);
+  height: 2.75%;
   padding: 0;
   border: min(0.2vw, 2px) solid rgba(57, 72, 255, 0.86);
   border-radius: 999px;
@@ -852,8 +852,4 @@ body.is-dark {
 
 .stage.is-dark .hero-logo > :not(.hero-logo-art) {
   display: none;
-}
-
-.stage.is-dark .hero-logo > .language-toggle {
-  display: block;
 }

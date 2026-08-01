@@ -8,22 +8,25 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <main class="stage" aria-label="LYRA Creative Universe">
+    <main class="stage is-zh" aria-label="LYRA Creative Universe">
       <h1 class="sr-only">LYRA Creative Universe</h1>
       <button class="light-toggle" type="button" aria-pressed="false">
         <span class="light-toggle-icon" aria-hidden="true"></span>
         <span class="light-toggle-text">LIGHT OFF</span>
       </button>
+      <button class="language-toggle" type="button" aria-label="Switch language to English" aria-pressed="true">
+        <span data-language-text>英</span>
+      </button>
 
       <nav class="nav-hotspots" aria-label="Primary">
-        <a class="hotspot nav-home" href="#home" data-en="Home" data-zh="首頁">Home</a>
-        <a class="hotspot nav-vizion" href="#vizion-system" data-en="Vizion System" data-zh="視覺系統">Vizion System</a>
-        <a class="hotspot nav-calendar" href="#daily-calendar" data-en="Daily Calendar" data-zh="每日曆">Daily Calendar</a>
-        <a class="hotspot nav-music" href="#music" data-en="Music" data-zh="音樂">Music</a>
-        <a class="hotspot nav-writing" href="#writing" data-en="Writing" data-zh="寫作">Writing</a>
-        <a class="hotspot nav-brand" href="#brand-website" data-en="Brand &amp; Website" data-zh="品牌與網站">Brand &amp; Website</a>
-        <a class="hotspot nav-articles" href="#articles" data-en="Articles" data-zh="文章">Articles</a>
-        <a class="hotspot nav-consultation" href="book-a-consultation/index.html" data-en="Consultation" data-zh="諮詢">Consultation</a>
+        <a class="hotspot nav-home" href="#home" data-en="Home" data-zh="首頁">首頁</a>
+        <a class="hotspot nav-vizion" href="#vizion-system" data-en="Vizion System" data-zh="視覺系統">視覺系統</a>
+        <a class="hotspot nav-calendar" href="#daily-calendar" data-en="Daily Calendar" data-zh="每日曆">每日曆</a>
+        <a class="hotspot nav-music" href="#music" data-en="Music" data-zh="音樂">音樂</a>
+        <a class="hotspot nav-writing" href="#writing" data-en="Writing" data-zh="寫作">寫作</a>
+        <a class="hotspot nav-brand" href="#brand-website" data-en="Brand &amp; Website" data-zh="品牌與網站">品牌與網站</a>
+        <a class="hotspot nav-articles" href="#articles" data-en="Articles" data-zh="文章">文章</a>
+        <a class="hotspot nav-consultation" href="book-a-consultation/index.html" data-en="Consultation" data-zh="諮詢">諮詢</a>
       </nav>
 
       <section class="hero-logo" id="home" aria-label="LYRA Creative Universe">
@@ -40,9 +43,6 @@
         </div>
         <div class="short-line" aria-hidden="true"></div>
         <p class="universe">Creative Universe</p>
-        <button class="language-toggle" type="button" aria-label="Switch language" aria-pressed="false">
-          <span data-language-text>中</span>
-        </button>
       </section>
 
       <section class="portrait-scene" aria-label="Portrait">
@@ -52,27 +52,27 @@
       <section class="folder-grid" aria-label="Creative sections">
         <a class="folder folder-vizion" id="vizion-system" href="#vizion-system">
           <img src="assets/folder-vizion-icon.png" alt="">
-          <span data-en="Vizion System" data-zh="視覺系統">Vizion System</span>
+          <span data-en="Vizion System" data-zh="視覺系統">視覺系統</span>
         </a>
         <a class="folder folder-calendar" id="daily-calendar" href="#daily-calendar">
           <img src="assets/folder-calendar-icon.png" alt="">
-          <span data-en="Daily<br>Calendar" data-zh="每日曆">Daily<br>Calendar</span>
+          <span data-en="Daily<br>Calendar" data-zh="每日曆">每日曆</span>
         </a>
         <a class="folder folder-music" id="music" href="#music">
           <img src="assets/folder-music-icon.png" alt="">
-          <span data-en="Music" data-zh="音樂">Music</span>
+          <span data-en="Music" data-zh="音樂">音樂</span>
         </a>
         <a class="folder folder-writing" id="writing" href="#writing">
           <img src="assets/folder-writing-icon.png" alt="">
-          <span data-en="Writing" data-zh="寫作">Writing</span>
+          <span data-en="Writing" data-zh="寫作">寫作</span>
         </a>
         <a class="folder folder-brand" id="brand-website" href="#brand-website">
           <img src="assets/folder-brand-icon.png" alt="">
-          <span data-en="Brand &amp;<br>Website" data-zh="品牌與<br>網站">Brand &amp;<br>Website</span>
+          <span data-en="Brand &amp;<br>Website" data-zh="品牌與<br>網站">品牌與<br>網站</span>
         </a>
         <a class="folder folder-articles" id="articles" href="#articles">
           <img src="assets/folder-articles-icon.png" alt="">
-          <span data-en="Articles" data-zh="文章">Articles</span>
+          <span data-en="Articles" data-zh="文章">文章</span>
         </a>
         <a class="folder folder-loveu-rabbit" id="loveu-rabbit" href="#loveu-rabbit">
           <img src="assets/folder-consultation-icon.png" alt="">
@@ -80,14 +80,14 @@
         </a>
         <a class="folder folder-consultation" id="consultation" href="book-a-consultation/index.html">
           <img src="assets/folder-consultation-icon.png" alt="">
-          <span data-en="Consultation" data-zh="諮詢">Consultation</span>
+          <span data-en="Consultation" data-zh="諮詢">諮詢</span>
         </a>
       </section>
 
       <form class="message-form" action="#" aria-label="Send Message">
-        <label class="sr-only" for="message" data-en="Send Message" data-zh="傳送訊息">Send Message</label>
-        <input id="message" name="message" type="text" autocomplete="off" aria-label="Send Message" placeholder="What's on your mind?" data-placeholder-en="What's on your mind?" data-placeholder-zh="想說些什麼？">
-        <button type="submit" aria-label="Send message" data-aria-en="Send message" data-aria-zh="傳送訊息">
+        <label class="sr-only" for="message" data-en="Send Message" data-zh="傳送訊息">傳送訊息</label>
+        <input id="message" name="message" type="text" autocomplete="off" aria-label="傳送訊息" placeholder="想說些什麼？" data-placeholder-en="What's on your mind?" data-placeholder-zh="想說些什麼？">
+        <button type="submit" aria-label="傳送訊息" data-aria-en="Send message" data-aria-zh="傳送訊息">
           <img src="assets/send-plane-icon.png" alt="">
         </button>
       </form>

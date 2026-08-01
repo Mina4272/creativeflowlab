@@ -3,28 +3,28 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Book a consultation with Creative Flow Lab for branding, websites, apps, systems, and digital projects.">
-    <title>Book a Consultation | Creative Flow Lab</title>
+    <meta name="description" content="預約 Creative Flow Lab 諮詢，討論品牌、網站、App、系統與數位專案。">
+    <title>預約諮詢 | Creative Flow Lab</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
   </head>
   <body>
-    <main class="consultation-page stage" aria-label="Book a Consultation">
+    <main class="consultation-page stage is-zh" aria-label="預約諮詢">
       <button class="light-toggle" type="button" aria-pressed="false">
         <span class="light-toggle-icon" aria-hidden="true"></span>
         <span class="light-toggle-text">LIGHT OFF</span>
       </button>
 
       <nav class="nav-hotspots" aria-label="Primary">
-        <a class="hotspot nav-home" href="../index.html">Home</a>
-        <a class="hotspot nav-vizion" href="../#vizion-system">Vizion System</a>
-        <a class="hotspot nav-calendar" href="../#daily-calendar">Daily Calendar</a>
-        <a class="hotspot nav-music" href="../#music">Music</a>
-        <a class="hotspot nav-writing" href="../#writing">Writing</a>
-        <a class="hotspot nav-brand" href="../#brand-website">Brand &amp; Website</a>
-        <a class="hotspot nav-articles" href="../#articles">Articles</a>
-        <a class="hotspot nav-consultation is-active" href="./" aria-current="page">Consultation</a>
+        <a class="hotspot nav-home" href="../index.html" data-en="Home" data-zh="首頁">首頁</a>
+        <a class="hotspot nav-vizion" href="../#vizion-system" data-en="Vizion System" data-zh="視覺系統">視覺系統</a>
+        <a class="hotspot nav-calendar" href="../#daily-calendar" data-en="Daily Calendar" data-zh="每日曆">每日曆</a>
+        <a class="hotspot nav-music" href="../#music" data-en="Music" data-zh="音樂">音樂</a>
+        <a class="hotspot nav-writing" href="../#writing" data-en="Writing" data-zh="寫作">寫作</a>
+        <a class="hotspot nav-brand" href="../#brand-website" data-en="Brand &amp; Website" data-zh="品牌與網站">品牌與網站</a>
+        <a class="hotspot nav-articles" href="../#articles" data-en="Articles" data-zh="文章">文章</a>
+        <a class="hotspot nav-consultation is-active" href="./" aria-current="page" data-en="Consultation" data-zh="諮詢">諮詢</a>
       </nav>
 
       <section class="hero" aria-labelledby="page-title">
@@ -40,46 +40,49 @@
             <span class="project-pill">PROJECT</span>
           </div>
         </div>
+        <button class="consult-language-toggle" type="button" aria-label="Switch language to English" aria-pressed="true">
+          <span data-language-text>英</span>
+        </button>
 
         <div class="frame" aria-hidden="true"></div>
 
         <div class="intro-column">
-          <p class="intro-copy">Book a 1:1 consultation call to discuss<br>your ideas and goals.</p>
+          <p class="intro-copy" data-en="Book a 1:1 consultation call to discuss<br>your ideas and goals." data-zh="預約一場 1:1 諮詢，聊聊<br>你的想法與目標。">預約一場 1:1 諮詢，聊聊<br>你的想法與目標。</p>
 
           <ul class="service-list">
             <li>
               <span class="service-icon tag-icon" aria-hidden="true"></span>
               <div>
                 <h2>BRAND &amp; IDENTITY</h2>
-                <p>Define your brand direction,<br>visual style, and positioning.</p>
+                <p data-en="Define your brand direction,<br>visual style, and positioning." data-zh="釐清品牌方向、<br>視覺風格與定位。">釐清品牌方向、<br>視覺風格與定位。</p>
               </div>
             </li>
             <li>
               <span class="service-icon window-icon" aria-hidden="true"></span>
               <div>
                 <h2>WEBSITE &amp; UX</h2>
-                <p>Plan your website structure,<br>user flow, and experience.</p>
+                <p data-en="Plan your website structure,<br>user flow, and experience." data-zh="規劃網站架構、<br>使用流程與體驗。">規劃網站架構、<br>使用流程與體驗。</p>
               </div>
             </li>
             <li>
               <span class="service-icon phone-icon" aria-hidden="true"></span>
               <div>
                 <h2>APP &amp; PRODUCT</h2>
-                <p>Validate your idea, features,<br>and product strategy.</p>
+                <p data-en="Validate your idea, features,<br>and product strategy." data-zh="驗證想法、功能<br>與產品策略。">驗證想法、功能<br>與產品策略。</p>
               </div>
             </li>
             <li>
               <span class="service-icon gear-icon" aria-hidden="true">⚙</span>
               <div>
                 <h2>SYSTEM &amp; AUTOMATION</h2>
-                <p>Streamline your operations<br>and build smart systems.</p>
+                <p data-en="Streamline your operations<br>and build smart systems." data-zh="整理工作流程，<br>建立聰明系統。">整理工作流程，<br>建立聰明系統。</p>
               </div>
             </li>
             <li>
               <span class="service-icon sparkle-icon" aria-hidden="true">✦</span>
               <div>
                 <h2>NEXT STEPS</h2>
-                <p>Timeline, budget, and the best<br>plan to move forward.</p>
+                <p data-en="Timeline, budget, and the best<br>plan to move forward." data-zh="時程、預算，<br>以及最適合的推進方式。">時程、預算，<br>以及最適合的推進方式。</p>
               </div>
             </li>
           </ul>
@@ -87,52 +90,52 @@
 
         <form class="consultation-form" id="consultation-form" novalidate>
           <div class="field-group">
-            <label for="name">NAME</label>
-            <input id="name" name="name" type="text" placeholder="Your full name" autocomplete="name" required>
+            <label for="name" data-en="NAME" data-zh="姓名">姓名</label>
+            <input id="name" name="name" type="text" placeholder="你的姓名" autocomplete="name" required data-placeholder-en="Your full name" data-placeholder-zh="你的姓名">
           </div>
 
           <div class="field-group">
-            <label for="company">BRAND / COMPANY</label>
-            <input id="company" name="company" type="text" placeholder="Your brand or company name" autocomplete="organization">
+            <label for="company" data-en="BRAND / COMPANY" data-zh="品牌 / 公司">品牌 / 公司</label>
+            <input id="company" name="company" type="text" placeholder="你的品牌或公司名稱" autocomplete="organization" data-placeholder-en="Your brand or company name" data-placeholder-zh="你的品牌或公司名稱">
           </div>
 
           <div class="field-group">
-            <label for="email">EMAIL</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+            <label for="email" data-en="EMAIL" data-zh="電子信箱">電子信箱</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required data-placeholder-en="you@example.com" data-placeholder-zh="you@example.com">
           </div>
 
           <div class="field-group">
-            <label for="phone">PHONE</label>
-            <input id="phone" name="phone" type="tel" placeholder="e.g. +886 912 345 678" autocomplete="tel">
+            <label for="phone" data-en="PHONE" data-zh="電話">電話</label>
+            <input id="phone" name="phone" type="tel" placeholder="例如 +886 912 345 678" autocomplete="tel" data-placeholder-en="e.g. +886 912 345 678" data-placeholder-zh="例如 +886 912 345 678">
           </div>
 
           <div class="field-group">
-            <label for="project">WHAT DO YOU NEED HELP WITH?</label>
-            <textarea id="project" name="project" rows="4" placeholder="Tell me about your project, goals, and what you need help with." required></textarea>
+            <label for="project" data-en="WHAT DO YOU NEED HELP WITH?" data-zh="你需要哪方面協助？">你需要哪方面協助？</label>
+            <textarea id="project" name="project" rows="4" placeholder="簡單描述你的專案、目標，以及希望我協助的地方。" required data-placeholder-en="Tell me about your project, goals, and what you need help with." data-placeholder-zh="簡單描述你的專案、目標，以及希望我協助的地方。"></textarea>
           </div>
 
           <div class="field-group">
-            <label for="budget">BUDGET</label>
+            <label for="budget" data-en="BUDGET" data-zh="預算">預算</label>
             <select id="budget" name="budget" required>
-              <option value="" selected disabled>Select your budget range</option>
-              <option>Not sure yet</option>
-              <option>Under NT$10,000</option>
-              <option>NT$10,000–30,000</option>
-              <option>NT$30,000–60,000</option>
-              <option>NT$60,000–100,000</option>
+              <option value="" selected disabled data-en="Select your budget range" data-zh="選擇你的預算範圍">選擇你的預算範圍</option>
+              <option data-en="Not sure yet" data-zh="還不確定">還不確定</option>
+              <option data-en="Under NT$10,000" data-zh="NT$10,000 以下">NT$10,000 以下</option>
+              <option>NT$10,000-30,000</option>
+              <option>NT$30,000-60,000</option>
+              <option>NT$60,000-100,000</option>
               <option>NT$100,000+</option>
             </select>
           </div>
 
           <div class="field-group">
-            <label for="start-time">START TIME</label>
+            <label for="start-time" data-en="START TIME" data-zh="開始時間">開始時間</label>
             <select id="start-time" name="start_time" required>
-              <option value="" selected disabled>Select your preferred time</option>
-              <option>As soon as possible</option>
-              <option>Within one month</option>
-              <option>Within 1–3 months</option>
-              <option>After 3 months</option>
-              <option>Not sure yet</option>
+              <option value="" selected disabled data-en="Select your preferred time" data-zh="選擇你希望開始的時間">選擇你希望開始的時間</option>
+              <option data-en="As soon as possible" data-zh="越快越好">越快越好</option>
+              <option data-en="Within one month" data-zh="一個月內">一個月內</option>
+              <option data-en="Within 1-3 months" data-zh="一到三個月內">一到三個月內</option>
+              <option data-en="After 3 months" data-zh="三個月後">三個月後</option>
+              <option data-en="Not sure yet" data-zh="還不確定">還不確定</option>
             </select>
           </div>
 
@@ -140,8 +143,8 @@
           <input type="hidden" name="_subject" value="New Creative Flow Lab inquiry">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="false">
-          <button class="submit-button" type="submit">SEND INQUIRY</button>
-          <p class="privacy-note"><span aria-hidden="true">▣</span> Your information is safe and secure.</p>
+          <button class="submit-button" type="submit" data-en="SEND INQUIRY" data-zh="送出諮詢">送出諮詢</button>
+          <p class="privacy-note"><span aria-hidden="true">▣</span> <span data-en="Your information is safe and secure." data-zh="你的資料會被安全保護。">你的資料會被安全保護。</span></p>
           <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
         </form>
 
@@ -164,9 +167,9 @@
       </section>
 
       <form class="message-form" action="#consultation-form" aria-label="Send Message">
-        <label class="sr-only" for="message">Send Message</label>
-        <input id="message" name="message" type="text" autocomplete="off" aria-label="Send Message" placeholder="What's on your mind?">
-        <button type="submit" aria-label="Go to consultation form">
+        <label class="sr-only" for="message" data-en="Send Message" data-zh="傳送訊息">傳送訊息</label>
+        <input id="message" name="message" type="text" autocomplete="off" aria-label="傳送訊息" placeholder="想說些什麼？" data-placeholder-en="What's on your mind?" data-placeholder-zh="想說些什麼？">
+        <button type="submit" aria-label="前往諮詢表單" data-aria-en="Go to consultation form" data-aria-zh="前往諮詢表單">
           <img src="../assets/send-plane-icon.png" alt="">
         </button>
       </form>

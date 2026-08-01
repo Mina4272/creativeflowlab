@@ -163,7 +163,7 @@ function setLanguage(language) {
   }
 
   if (languageToggleText) {
-    languageToggleText.textContent = isChinese ? "EN" : "中";
+    languageToggleText.textContent = isChinese ? "英" : "中";
   }
 }
 
@@ -177,9 +177,9 @@ function saveLanguage(language) {
 
 function readLanguage() {
   try {
-    return localStorage.getItem(languageStorageKey) === "zh" ? "zh" : "en";
+    return localStorage.getItem(languageStorageKey) === "en" ? "en" : "zh";
   } catch (error) {
-    return "en";
+    return "zh";
   }
 }
 

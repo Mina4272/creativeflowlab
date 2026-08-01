@@ -144,6 +144,52 @@
   text-align: center;
 }
 
+.consult-language-toggle {
+  position: absolute;
+  right: 0.05%;
+  top: 5.42%;
+  z-index: 12;
+  width: min(2.5vw, 30px);
+  height: 2.75%;
+  padding: 0;
+  border: min(0.2vw, 2px) solid rgba(57, 72, 255, 0.86);
+  border-radius: 999px;
+  color: var(--consult-blue);
+  background: rgba(246, 246, 245, 0.58);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: min(1.35vw, 16px);
+  font-weight: 900;
+  line-height: 1;
+  cursor: pointer;
+  outline: 0;
+  transition: background-color 130ms ease, box-shadow 130ms ease, color 130ms ease;
+}
+
+.consult-language-toggle:hover,
+.consult-language-toggle.is-hovered {
+  background: rgba(70, 185, 255, 0.18);
+  box-shadow: 0 0 min(1.84vw, 22px) rgba(70, 185, 255, 0.16);
+}
+
+.consultation-page.is-zh .hotspot,
+.consultation-page.is-zh .intro-copy,
+.consultation-page.is-zh .consultation-form,
+.consultation-page.is-zh .message-form input,
+.consultation-page.is-zh .consult-language-toggle {
+  font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", "Helvetica Neue", Arial, sans-serif;
+}
+
+.consultation-page.is-zh .hotspot {
+  font-size: min(1.58vw, 19px);
+  font-weight: 800;
+}
+
+.consultation-page.is-zh .field-group label,
+.consultation-page.is-zh .submit-button {
+  font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 900;
+}
+
 .frame {
   position: absolute;
   left: 17.3%;
@@ -490,6 +536,24 @@
 
 .consultation-page.is-dark .field-group select option {
   color: #111;
+}
+
+.consultation-page.is-dark .consult-language-toggle {
+  color: #8fb4ff;
+  border-color: #678dff;
+  background: rgba(8, 7, 48, 0.64);
+  box-shadow:
+    0 0 min(0.75vw, 9px) rgba(85, 143, 255, 0.66),
+    inset 0 0 min(1vw, 12px) rgba(85, 143, 255, 0.18);
+  text-shadow: 0 0 min(0.65vw, 8px) rgba(101, 154, 255, 0.82);
+}
+
+.consultation-page.is-dark .consult-language-toggle:hover,
+.consultation-page.is-dark .consult-language-toggle.is-hovered {
+  background: rgba(255, 93, 245, 0.16);
+  box-shadow:
+    0 0 min(1.5vw, 18px) rgba(255, 93, 245, 0.32),
+    inset 0 0 min(1.2vw, 14px) rgba(90, 149, 255, 0.18);
 }
 
 @media (prefers-reduced-motion: reduce) {

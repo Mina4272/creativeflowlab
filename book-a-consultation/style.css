@@ -1,0 +1,642 @@
+/* Page-specific layout. The shared shell, navigation, light toggle and footer
+   are inherited from ../style.css so this subpage follows the homepage rules. */
+
+.consultation-page {
+  --consult-blue: #3948ff;
+  --consult-navy: #090d4d;
+  color: #111;
+}
+
+.consultation-page .nav-home::after {
+  display: none;
+}
+
+.consultation-page .nav-consultation::after {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: 2%;
+  height: min(0.34vw, 4px);
+  background: currentColor;
+}
+
+.hero {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.hero-heading {
+  position: absolute;
+  left: 5.8%;
+  top: 7.1%;
+  width: 63%;
+  height: 18.2%;
+  z-index: 6;
+}
+
+.script-label {
+  position: absolute;
+  left: 10.5%;
+  top: 0;
+  z-index: 3;
+  margin: 0;
+  font-family: "Snell Roundhand", "Brush Script MT", cursive;
+  font-size: min(5.2vw, 62px);
+  line-height: 1;
+  transform: rotate(-4deg);
+}
+
+.headline-highlight {
+  position: absolute;
+  left: 2%;
+  top: 19%;
+  width: 92%;
+  height: 52%;
+  padding: 1.1% 1.6%;
+  background: rgba(213, 213, 215, 0.72);
+}
+
+.headline-highlight h1 {
+  margin: 0;
+  color: var(--consult-navy);
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: min(7.65vw, 92px);
+  font-weight: 900;
+  line-height: 0.93;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+}
+
+.headline-highlight h1 span {
+  display: block;
+  white-space: nowrap;
+}
+
+.connector {
+  position: absolute;
+  z-index: 5;
+  width: min(0.68vw, 8px);
+  border-radius: 999px;
+  background: var(--consult-blue);
+}
+
+.connector::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: min(8vw, 96px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #2b58ff, #3a26df);
+  transform: translateX(-50%);
+}
+
+.connector-left {
+  left: 0;
+  top: 8%;
+  height: 69%;
+}
+
+.connector-left::before {
+  top: -2%;
+}
+
+.connector-right {
+  right: 0;
+  top: 43%;
+  height: 35%;
+}
+
+.connector-right::before {
+  bottom: -18%;
+}
+
+.heading-footer {
+  position: absolute;
+  left: 2%;
+  top: 78%;
+  width: 62%;
+  height: 18%;
+  display: flex;
+  align-items: center;
+  gap: 8%;
+}
+
+.heading-rule {
+  width: 32%;
+  height: min(0.34vw, 4px);
+  background: #111;
+}
+
+.project-pill {
+  min-width: 47%;
+  padding: 2.7% 6%;
+  border: min(0.25vw, 3px) solid var(--consult-blue);
+  border-radius: 999px;
+  color: var(--consult-blue);
+  background: rgba(246, 246, 245, 0.34);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: min(2.5vw, 30px);
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+}
+
+.frame {
+  position: absolute;
+  left: 17.3%;
+  top: 13.1%;
+  width: 75.8%;
+  height: 66.3%;
+  z-index: 1;
+  /* border: min(0.25vw, 3px) solid #111; */
+  pointer-events: none;
+}
+
+.intro-column {
+  position: absolute;
+  left: 6.2%;
+  top: 29.3%;
+  width: 32.8%;
+  z-index: 5;
+}
+
+.intro-copy {
+  margin: 0 0 8%;
+  font-size: min(2.15vw, 26px);
+  line-height: 1.52;
+}
+
+.service-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-list li {
+  display: grid;
+  grid-template-columns: 21% 1fr;
+  gap: 4.5%;
+  align-items: center;
+  min-height: min(9vw, 108px);
+  padding: 5.2% 0;
+  border-bottom: min(0.16vw, 2px) solid rgba(17, 17, 17, 0.76);
+}
+
+.service-list li:last-child {
+  border-bottom: 0;
+}
+
+.service-list h2 {
+  margin: 0 0 2.6%;
+  font-family: "Courier New", monospace;
+  font-size: min(1.67vw, 20px);
+  line-height: 1.15;
+}
+
+.service-list p {
+  margin: 0;
+  font-size: min(1.48vw, 18px);
+  line-height: 1.34;
+}
+
+.service-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(4.2vw, 50px);
+  height: min(4.2vw, 50px);
+  color: var(--consult-blue);
+  line-height: 1;
+}
+
+.tag-icon {
+  width: min(3.6vw, 43px);
+  height: min(2.7vw, 32px);
+  margin-left: 10%;
+  border: min(0.25vw, 3px) solid var(--consult-blue);
+  border-radius: min(0.45vw, 5px) min(0.9vw, 11px) min(0.9vw, 11px) min(0.45vw, 5px);
+  transform: rotate(-42deg);
+}
+
+.tag-icon::after {
+  content: "";
+  position: absolute;
+  right: 16%;
+  top: 22%;
+  width: 14%;
+  aspect-ratio: 1;
+  border: min(0.16vw, 2px) solid var(--consult-blue);
+  border-radius: 50%;
+}
+
+.window-icon {
+  width: min(4.2vw, 50px);
+  height: min(3.6vw, 43px);
+  border: min(0.25vw, 3px) solid var(--consult-blue);
+  border-radius: min(0.5vw, 6px);
+}
+
+.window-icon::before {
+  content: "";
+  position: absolute;
+  inset: 24% 0 auto;
+  height: min(0.16vw, 2px);
+  background: var(--consult-blue);
+}
+
+.phone-icon {
+  width: min(2.45vw, 29px);
+  height: min(4.2vw, 50px);
+  margin-left: 18%;
+  border: min(0.25vw, 3px) solid var(--consult-blue);
+  border-radius: min(0.45vw, 5px);
+}
+
+.phone-icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  width: 14%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--consult-blue);
+  transform: translateX(-50%);
+}
+
+.gear-icon {
+  font-family: Arial, sans-serif;
+  font-size: min(4.2vw, 50px);
+}
+
+.sparkle-icon {
+  font-size: min(4.4vw, 53px);
+  transform: scaleX(0.78);
+}
+
+.consultation-form {
+  position: absolute;
+  right: 6.2%;
+  top: 27.3%;
+  width: 43.3%;
+  z-index: 6;
+  padding: 2.7% 3.1% 2.1%;
+  border: min(0.17vw, 2px) solid #111;
+  border-radius: min(0.9vw, 11px);
+  background: rgba(241, 241, 239, 0.76);
+}
+
+.field-group {
+  margin-bottom: 3.5%;
+}
+
+.field-group label {
+  display: block;
+  margin-bottom: 1.7%;
+  font-family: "Courier New", monospace;
+  font-size: min(1.26vw, 15px);
+  font-weight: 700;
+}
+
+.field-group input,
+.field-group select,
+.field-group textarea {
+  width: 100%;
+  border: min(0.13vw, 1.5px) solid rgba(17, 17, 17, 0.45);
+  border-radius: min(0.67vw, 8px);
+  background: rgba(255, 255, 255, 0.55);
+  color: #111;
+  font-size: min(1.4vw, 17px);
+  outline: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+}
+
+.field-group input,
+.field-group select {
+  height: min(4.5vw, 54px);
+  padding: 0 3.7%;
+}
+
+.field-group textarea {
+  min-height: min(9.6vw, 115px);
+  padding: 3.4% 3.7%;
+  resize: vertical;
+  line-height: 1.4;
+}
+
+.field-group input::placeholder,
+.field-group textarea::placeholder {
+  color: rgba(17, 17, 17, 0.34);
+}
+
+.field-group input:focus,
+.field-group select:focus,
+.field-group textarea:focus {
+  border-color: var(--consult-blue);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 0 0 min(0.25vw, 3px) rgba(57, 72, 255, 0.12);
+}
+
+.field-group [aria-invalid="true"] {
+  border-color: #c51e37;
+  box-shadow: 0 0 0 min(0.25vw, 3px) rgba(197, 30, 55, 0.1);
+}
+
+.submit-button {
+  width: 100%;
+  height: min(5.1vw, 61px);
+  margin-top: 0.5%;
+  border: 0;
+  border-radius: min(0.55vw, 7px);
+  color: #fff;
+  background: linear-gradient(90deg, #334cff, #3b32ee);
+  font-size: min(1.5vw, 18px);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.submit-button:hover,
+.submit-button:focus-visible {
+  filter: brightness(1.06);
+}
+
+.submit-button:disabled {
+  opacity: 0.58;
+  cursor: wait;
+}
+
+.privacy-note,
+.form-status {
+  margin: 2.5% 0 0;
+  text-align: center;
+  font-size: min(1.05vw, 13px);
+  line-height: 1.35;
+}
+
+.form-status {
+  min-height: 1.4em;
+  font-weight: 700;
+}
+
+.form-status.is-error { color: #a61b2f; }
+.form-status.is-success { color: #1f713b; }
+
+.honeypot {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+}
+
+.floating-folder {
+  position: absolute;
+  z-index: 8;
+  display: grid;
+  justify-items: center;
+  color: #111;
+  text-decoration: none;
+  font-size: min(1.55vw, 19px);
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  display: none;
+}
+
+.floating-folder img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.floating-folder span {
+  margin-top: 4%;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.55);
+}
+
+.folder-brand {
+  left: 72.4%;
+  top: 10.5%;
+  width: 12.7%;
+  transform: rotate(8deg);
+}
+
+.folder-website {
+  left: 3.5%;
+  top: 70.5%;
+  width: 13.7%;
+  transform: rotate(-6deg);
+}
+
+.folder-app {
+  left: 27.3%;
+  top: 76.2%;
+  width: 12.5%;
+  transform: rotate(4deg);
+}
+
+.folder-plan {
+  left: 72.5%;
+  top: 76.7%;
+  width: 12.7%;
+  transform: rotate(7deg);
+}
+
+.consultation-page.is-dark .headline-highlight {
+  background: rgba(20, 20, 52, 0.72);
+}
+
+.consultation-page.is-dark .headline-highlight h1,
+.consultation-page.is-dark .script-label,
+.consultation-page.is-dark .intro-copy,
+.consultation-page.is-dark .service-list,
+.consultation-page.is-dark .consultation-form,
+.consultation-page.is-dark .floating-folder,
+.consultation-page.is-dark .privacy-note {
+  color: #f3f3f3;
+}
+
+.consultation-page.is-dark .frame,
+.consultation-page.is-dark .heading-rule,
+.consultation-page.is-dark .service-list li,
+.consultation-page.is-dark .consultation-form {
+  border-color: rgba(243, 243, 243, 0.82);
+}
+
+.consultation-page.is-dark .heading-rule {
+  background: #f3f3f3;
+}
+
+.consultation-page.is-dark .consultation-form {
+  background: rgba(8, 9, 31, 0.78);
+}
+
+.consultation-page.is-dark .field-group input,
+.consultation-page.is-dark .field-group select,
+.consultation-page.is-dark .field-group textarea {
+  color: #f3f3f3;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.consultation-page.is-dark .field-group input::placeholder,
+.consultation-page.is-dark .field-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.46);
+}
+
+.consultation-page.is-dark .field-group select option {
+  color: #111;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Final composition alignment: mirrors the selected red-box reference while
+   preserving the homepage shell/header/light-mode rules from ../style.css. */
+.consultation-page .hero-heading {
+  left: 5.15%;
+  top: 7.05%;
+  width: 66.2%;
+  height: 18.4%;
+}
+
+.consultation-page .script-label {
+  left: 9.2%;
+  top: 0.5%;
+}
+
+.consultation-page .headline-highlight {
+  left: 1.5%;
+  top: 19.5%;
+  width: 94.5%;
+  height: 51.5%;
+  padding: 1.05% 1.5%;
+}
+
+.consultation-page .headline-highlight h1 {
+  font-size: min(7.35vw, 88px);
+  line-height: 0.94;
+}
+
+.consultation-page .connector-left {
+  left: 0;
+  top: 7%;
+  height: 70%;
+}
+
+.consultation-page .connector-right {
+  right: 0.8%;
+  top: 43%;
+  height: 35%;
+}
+
+.consultation-page .heading-footer {
+  left: 1.8%;
+  top: 78%;
+  width: 57.5%;
+  gap: 7.5%;
+}
+
+.consultation-page .heading-rule {
+  width: 31%;
+}
+
+.consultation-page .project-pill {
+  min-width: 49%;
+}
+
+.consultation-page .frame {
+  left: 17.2%;
+  top: 13.35%;
+  width: 75.6%;
+  height: 66.1%;
+}
+
+.consultation-page .intro-column {
+  left: 7.45%;
+  top: 29.55%;
+  width: 31.4%;
+}
+
+.consultation-page .intro-copy {
+  margin-bottom: 7.5%;
+}
+
+.consultation-page .service-list li {
+  min-height: min(8.7vw, 104px);
+  padding: 4.75% 0;
+}
+
+.consultation-page .consultation-form {
+  right: 6.1%;
+  top: 27.15%;
+  width: 43.35%;
+  padding: 2.55% 3% 1.9%;
+}
+
+.consultation-page .field-group {
+  margin-bottom: 3.15%;
+}
+
+.consultation-page .field-group textarea {
+  min-height: min(8.95vw, 107px);
+}
+
+.consultation-page .folder-brand {
+  left: 72.5%;
+  top: 10.45%;
+  width: 12.6%;
+}
+
+.consultation-page .folder-website {
+  left: 3.65%;
+  top: 70.25%;
+  width: 13.7%;
+}
+
+.consultation-page .folder-app {
+  left: 27.5%;
+  top: 76.0%;
+  width: 12.45%;
+}
+
+.consultation-page .folder-plan {
+  left: 72.55%;
+  top: 76.35%;
+  width: 12.65%;
+}
+
+/* Keep all consultation content inside the intended composition area. */
+.consultation-page .hero,
+.consultation-page .hero * {
+  max-width: 100%;
+}
+
+.consultation-page .consultation-form input,
+.consultation-page .consultation-form select,
+.consultation-page .consultation-form textarea,
+.consultation-page .submit-button {
+  min-width: 0;
+}
+
+@media (max-width: 720px) {
+  .consultation-page .headline-highlight h1 {
+    font-size: 7.1vw;
+  }
+
+  .consultation-page .service-list h2 {
+    font-size: 1.58vw;
+  }
+
+  .consultation-page .service-list p {
+    font-size: 1.4vw;
+  }
+}

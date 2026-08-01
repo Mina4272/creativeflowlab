@@ -1,0 +1,9 @@
+FORM EMAIL SETUP
+
+The consultation form sends inquiries to:
+yuchieh4272@gmail.com
+
+It uses FormSubmit's AJAX endpoint in script.js:
+https://formsubmit.co/ajax/yuchieh4272@gmail.com
+
+FormSubmit may send a first-time activation email to this inbox. Confirm that email once to enable delivery.

@@ -439,6 +439,51 @@ body.is-dark {
   white-space: nowrap;
 }
 
+.language-toggle {
+  position: absolute;
+  left: 87.6%;
+  top: 70.4%;
+  z-index: 9;
+  width: min(4.45vw, 53px);
+  height: min(3.05vw, 37px);
+  padding: 0;
+  border: min(0.2vw, 2px) solid rgba(57, 72, 255, 0.86);
+  border-radius: 999px;
+  color: var(--blue);
+  background: rgba(246, 246, 245, 0.58);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: min(1.35vw, 16px);
+  font-weight: 900;
+  line-height: 1;
+  cursor: pointer;
+  outline: 0;
+  transition: background-color 130ms ease, box-shadow 130ms ease, color 130ms ease;
+}
+
+.language-toggle:hover,
+.language-toggle.is-hovered {
+  background: rgba(70, 185, 255, 0.18);
+  box-shadow: 0 0 min(1.84vw, 22px) rgba(70, 185, 255, 0.16);
+}
+
+.stage.is-zh .hotspot,
+.stage.is-zh .folder,
+.stage.is-zh .message-form input,
+.stage.is-zh .credit,
+.stage.is-zh .language-toggle {
+  font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 800;
+}
+
+.stage.is-zh .hotspot {
+  font-size: min(1.58vw, 19px);
+}
+
+.stage.is-zh .folder {
+  font-size: min(1.86vw, 22px);
+  line-height: 1.18;
+}
+
 .portrait-scene {
   position: absolute;
   left: 17.85%;
@@ -699,6 +744,24 @@ body.is-dark {
   text-shadow: 0 0 min(0.75vw, 9px) rgba(101, 154, 255, 0.9);
 }
 
+.stage.is-dark .language-toggle {
+  color: #8fb4ff;
+  border-color: #678dff;
+  background: rgba(8, 7, 48, 0.64);
+  box-shadow:
+    0 0 min(0.75vw, 9px) rgba(85, 143, 255, 0.66),
+    inset 0 0 min(1vw, 12px) rgba(85, 143, 255, 0.18);
+  text-shadow: 0 0 min(0.65vw, 8px) rgba(101, 154, 255, 0.82);
+}
+
+.stage.is-dark .language-toggle:hover,
+.stage.is-dark .language-toggle.is-hovered {
+  background: rgba(255, 93, 245, 0.16);
+  box-shadow:
+    0 0 min(1.5vw, 18px) rgba(255, 93, 245, 0.32),
+    inset 0 0 min(1.2vw, 14px) rgba(90, 149, 255, 0.18);
+}
+
 .stage.is-dark .portrait-scene {
   filter: none;
 }
@@ -789,4 +852,8 @@ body.is-dark {
 
 .stage.is-dark .hero-logo > :not(.hero-logo-art) {
   display: none;
+}
+
+.stage.is-dark .hero-logo > .language-toggle {
+  display: block;
 }

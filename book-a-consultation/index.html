@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Book a consultation with Creative Flow Lab for branding, websites, apps, systems, and digital projects.">
+    <title>Book a Consultation | Creative Flow Lab</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="consultation-page stage" aria-label="Book a Consultation">
+      <button class="light-toggle" type="button" aria-pressed="false">
+        <span class="light-toggle-icon" aria-hidden="true"></span>
+        <span class="light-toggle-text">LIGHT OFF</span>
+      </button>
+
+      <nav class="nav-hotspots" aria-label="Primary">
+        <a class="hotspot nav-home" href="../index.html">Home</a>
+        <a class="hotspot nav-vizion" href="../#vizion-system">Vizion System</a>
+        <a class="hotspot nav-calendar" href="../#daily-calendar">Daily Calendar</a>
+        <a class="hotspot nav-music" href="../#music">Music</a>
+        <a class="hotspot nav-writing" href="../#writing">Writing</a>
+        <a class="hotspot nav-brand" href="../#brand-website">Brand &amp; Website</a>
+        <a class="hotspot nav-articles" href="../#articles">Articles</a>
+        <a class="hotspot nav-consultation is-active" href="./" aria-current="page">Consultation</a>
+      </nav>
+
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-heading">
+          <span class="connector connector-left" aria-hidden="true"></span>
+          <p class="script-label">Let's talk</p>
+          <div class="headline-highlight">
+            <h1 id="page-title"><span>BOOK A</span><span>CONSULTATION</span></h1>
+          </div>
+          <span class="connector connector-right" aria-hidden="true"></span>
+          <div class="heading-footer">
+            <span class="heading-rule" aria-hidden="true"></span>
+            <span class="project-pill">PROJECT</span>
+          </div>
+        </div>
+
+        <div class="frame" aria-hidden="true"></div>
+
+        <div class="intro-column">
+          <p class="intro-copy">Book a 1:1 consultation call to discuss<br>your ideas and goals.</p>
+
+          <ul class="service-list">
+            <li>
+              <span class="service-icon tag-icon" aria-hidden="true"></span>
+              <div>
+                <h2>BRAND &amp; IDENTITY</h2>
+                <p>Define your brand direction,<br>visual style, and positioning.</p>
+              </div>
+            </li>
+            <li>
+              <span class="service-icon window-icon" aria-hidden="true"></span>
+              <div>
+                <h2>WEBSITE &amp; UX</h2>
+                <p>Plan your website structure,<br>user flow, and experience.</p>
+              </div>
+            </li>
+            <li>
+              <span class="service-icon phone-icon" aria-hidden="true"></span>
+              <div>
+                <h2>APP &amp; PRODUCT</h2>
+                <p>Validate your idea, features,<br>and product strategy.</p>
+              </div>
+            </li>
+            <li>
+              <span class="service-icon gear-icon" aria-hidden="true">⚙</span>
+              <div>
+                <h2>SYSTEM &amp; AUTOMATION</h2>
+                <p>Streamline your operations<br>and build smart systems.</p>
+              </div>
+            </li>
+            <li>
+              <span class="service-icon sparkle-icon" aria-hidden="true">✦</span>
+              <div>
+                <h2>NEXT STEPS</h2>
+                <p>Timeline, budget, and the best<br>plan to move forward.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <form class="consultation-form" id="consultation-form" novalidate>
+          <div class="field-group">
+            <label for="name">NAME</label>
+            <input id="name" name="name" type="text" placeholder="Your full name" autocomplete="name" required>
+          </div>
+
+          <div class="field-group">
+            <label for="company">BRAND / COMPANY</label>
+            <input id="company" name="company" type="text" placeholder="Your brand or company name" autocomplete="organization">
+          </div>
+
+          <div class="field-group">
+            <label for="email">EMAIL</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+          </div>
+
+          <div class="field-group">
+            <label for="phone">PHONE</label>
+            <input id="phone" name="phone" type="tel" placeholder="e.g. +886 912 345 678" autocomplete="tel">
+          </div>
+
+          <div class="field-group">
+            <label for="project">WHAT DO YOU NEED HELP WITH?</label>
+            <textarea id="project" name="project" rows="4" placeholder="Tell me about your project, goals, and what you need help with." required></textarea>
+          </div>
+
+          <div class="field-group">
+            <label for="budget">BUDGET</label>
+            <select id="budget" name="budget" required>
+              <option value="" selected disabled>Select your budget range</option>
+              <option>Not sure yet</option>
+              <option>Under NT$10,000</option>
+              <option>NT$10,000–30,000</option>
+              <option>NT$30,000–60,000</option>
+              <option>NT$60,000–100,000</option>
+              <option>NT$100,000+</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="start-time">START TIME</label>
+            <select id="start-time" name="start_time" required>
+              <option value="" selected disabled>Select your preferred time</option>
+              <option>As soon as possible</option>
+              <option>Within one month</option>
+              <option>Within 1–3 months</option>
+              <option>After 3 months</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+
+          <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="_subject" value="New Creative Flow Lab inquiry">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <button class="submit-button" type="submit">SEND INQUIRY</button>
+          <p class="privacy-note"><span aria-hidden="true">▣</span> Your information is safe and secure.</p>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <a class="floating-folder folder-brand" href="#consultation-form" aria-label="Brand consultation">
+          <img src="../assets/folder-brand-icon.png" alt="">
+          <span>BRAND.PDF</span>
+        </a>
+        <a class="floating-folder folder-website" href="#consultation-form" aria-label="Website consultation">
+          <img src="../assets/folder-vizion-icon.png" alt="">
+          <span>WEBSITE.ZIP</span>
+        </a>
+        <a class="floating-folder folder-app" href="#consultation-form" aria-label="App consultation">
+          <img src="../assets/folder-calendar-icon.png" alt="">
+          <span>APP.FILE</span>
+        </a>
+        <a class="floating-folder folder-plan" href="#consultation-form" aria-label="Project planning consultation">
+          <img src="../assets/folder-consultation-icon.png" alt="">
+          <span>PLAN.DOC</span>
+        </a>
+      </section>
+
+      <form class="message-form" action="#consultation-form" aria-label="Send Message">
+        <label class="sr-only" for="message">Send Message</label>
+        <input id="message" name="message" type="text" autocomplete="off" aria-label="Send Message" placeholder="What's on your mind?">
+        <button type="submit" aria-label="Go to consultation form">
+          <img src="../assets/send-plane-icon.png" alt="">
+        </button>
+      </form>
+
+      <p class="credit">BY LYRA</p>
+      <audio id="bubble-pop-sound" src="../assets/glossy-bubble-pop.wav" preload="auto"></audio>
+    </main>
+  </body>
+</html>

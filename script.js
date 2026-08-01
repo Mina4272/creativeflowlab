@@ -1,10 +1,13 @@
-const bubbleTargets = document.querySelectorAll(".folder, .nav-hotspots .hotspot, .light-toggle");
+const bubbleTargets = document.querySelectorAll(".folder, .nav-hotspots .hotspot, .light-toggle, .language-toggle");
 const messageForm = document.querySelector(".message-form");
 const popSound = document.querySelector("#bubble-pop-sound");
 const stage = document.querySelector(".stage");
 const lightToggle = document.querySelector(".light-toggle");
 const lightToggleText = document.querySelector(".light-toggle-text");
+const languageToggle = document.querySelector(".language-toggle");
+const languageToggleText = document.querySelector("[data-language-text]");
 const themeStorageKey = "lyra-light-mode";
+const languageStorageKey = "lyra-language";
 const darkImageTargets = [
   {
     elements: document.querySelectorAll(".portrait-scene img"),
@@ -133,12 +136,68 @@ function readLightMode() {
   }
 }
 
+function setLanguage(language) {
+  const isChinese = language === "zh";
+
+  document.documentElement.lang = isChinese ? "zh-Hant" : "en";
+
+  if (stage) {
+    stage.classList.toggle("is-zh", isChinese);
+  }
+
+  document.querySelectorAll("[data-en][data-zh]").forEach((element) => {
+    element.innerHTML = element.dataset[language] || element.dataset.en;
+  });
+
+  document.querySelectorAll("[data-placeholder-en][data-placeholder-zh]").forEach((element) => {
+    element.setAttribute("placeholder", element.dataset[`placeholder${isChinese ? "Zh" : "En"}`]);
+  });
+
+  document.querySelectorAll("[data-aria-en][data-aria-zh]").forEach((element) => {
+    element.setAttribute("aria-label", element.dataset[`aria${isChinese ? "Zh" : "En"}`]);
+  });
+
+  if (languageToggle) {
+    languageToggle.setAttribute("aria-pressed", String(isChinese));
+    languageToggle.setAttribute("aria-label", isChinese ? "Switch language to English" : "切換成中文");
+  }
+
+  if (languageToggleText) {
+    languageToggleText.textContent = isChinese ? "EN" : "中";
+  }
+}
+
+function saveLanguage(language) {
+  try {
+    localStorage.setItem(languageStorageKey, language);
+  } catch (error) {
+    return;
+  }
+}
+
+function readLanguage() {
+  try {
+    return localStorage.getItem(languageStorageKey) === "zh" ? "zh" : "en";
+  } catch (error) {
+    return "en";
+  }
+}
+
 setLightMode(readLightMode());
+setLanguage(readLanguage());
 
 if (lightToggle) {
   lightToggle.addEventListener("click", () => {
     const nextIsDark = !stage.classList.contains("is-dark");
     setLightMode(nextIsDark);
     saveLightMode(nextIsDark);
+  });
+}
+
+if (languageToggle) {
+  languageToggle.addEventListener("click", () => {
+    const nextLanguage = stage.classList.contains("is-zh") ? "en" : "zh";
+    setLanguage(nextLanguage);
+    saveLanguage(nextLanguage);
   });
 }

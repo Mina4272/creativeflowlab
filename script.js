@@ -7,7 +7,7 @@ const lightToggleText = document.querySelector(".light-toggle-text");
 const languageToggle = document.querySelector(".language-toggle");
 const languageToggleText = document.querySelector("[data-language-text]");
 const themeStorageKey = "lyra-light-mode";
-const languageStorageKey = "lyra-language";
+const languageStorageKey = "lyra-language-v2";
 const darkImageTargets = [
   {
     elements: document.querySelectorAll(".portrait-scene img"),

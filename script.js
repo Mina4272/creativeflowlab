@@ -192,8 +192,8 @@ function setBrandWebsiteView(isVisible) {
   stage.classList.toggle("is-brand-view", isVisible);
   brandWebsiteView.setAttribute("aria-hidden", String(!isVisible));
   brandWebsiteView.style.display = isVisible ? "block" : "none";
-  stage.style.minHeight = isVisible ? "100vh" : "";
-  stage.style.aspectRatio = isVisible ? "auto" : "";
+  document.documentElement.style.overflow = isVisible ? "hidden" : "";
+  document.body.style.overflow = isVisible ? "hidden" : "";
 }
 
 function syncHashView() {

@@ -6,6 +6,7 @@ const lightToggle = document.querySelector(".light-toggle");
 const lightToggleText = document.querySelector(".light-toggle-text");
 const languageToggle = document.querySelector(".language-toggle");
 const languageToggleText = document.querySelector("[data-language-text]");
+const brandWebsiteView = document.querySelector(".brand-website-view");
 const themeStorageKey = "lyra-light-mode";
 const languageStorageKey = "lyra-language-v2";
 const darkImageTargets = [
@@ -153,7 +154,7 @@ function setLanguage(language) {
     element.setAttribute("placeholder", element.dataset[`placeholder${isChinese ? "Zh" : "En"}`]);
   });
 
-  document.querySelectorAll("[data-aria-en][data-aria-zh]").forEach((element) => {
+  document.querySelectorAll("[data-aria-en][data-zh]").forEach((element) => {
     element.setAttribute("aria-label", element.dataset[`aria${isChinese ? "Zh" : "En"}`]);
   });
 
@@ -183,8 +184,30 @@ function readLanguage() {
   }
 }
 
+function setBrandWebsiteView(isVisible) {
+  if (!stage || !brandWebsiteView) {
+    return;
+  }
+
+  stage.classList.toggle("is-brand-view", isVisible);
+  brandWebsiteView.setAttribute("aria-hidden", String(!isVisible));
+  brandWebsiteView.style.display = isVisible ? "block" : "none";
+  stage.style.minHeight = isVisible ? "100vh" : "";
+  stage.style.aspectRatio = isVisible ? "auto" : "";
+}
+
+function syncHashView() {
+  const isBrandView = window.location.hash === "#brand-website";
+  setBrandWebsiteView(isBrandView);
+
+  if (isBrandView) {
+    requestAnimationFrame(() => window.scrollTo(0, 0));
+  }
+}
+
 setLightMode(readLightMode());
 setLanguage(readLanguage());
+syncHashView();
 
 if (lightToggle) {
   lightToggle.addEventListener("click", () => {
@@ -201,3 +224,5 @@ if (languageToggle) {
     saveLanguage(nextLanguage);
   });
 }
+
+window.addEventListener("hashchange", syncHashView);

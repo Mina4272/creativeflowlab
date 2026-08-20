@@ -154,7 +154,7 @@ function setLanguage(language) {
     element.setAttribute("placeholder", element.dataset[`placeholder${isChinese ? "Zh" : "En"}`]);
   });
 
-  document.querySelectorAll("[data-aria-en][data-zh]").forEach((element) => {
+  document.querySelectorAll("[data-aria-en][data-aria-zh]").forEach((element) => {
     element.setAttribute("aria-label", element.dataset[`aria${isChinese ? "Zh" : "En"}`]);
   });
 

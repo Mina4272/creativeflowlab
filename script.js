@@ -197,7 +197,7 @@ function setBrandWebsiteView(isVisible) {
 }
 
 function syncHashView() {
-  const isBrandView = window.location.hash === "#brand-website";
+  const isBrandView = window.location.hash === "#brand-websites";
   setBrandWebsiteView(isBrandView);
 
   if (isBrandView) {

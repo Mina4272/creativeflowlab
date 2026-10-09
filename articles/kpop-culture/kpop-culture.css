@@ -1,0 +1,139 @@
+/* K-pop Culture — standalone editorial companion to the supplied Beatles archive */
+:root{--k-red:#b9362d;--k-dust:#ead9c6;--k-black:#141213}
+html{scroll-padding-top:25px}
+.kpop-page{font-family:var(--sans)}
+.kpop-page-header{background:var(--cream)}
+.kpop-page-header .header-actions{color:var(--ink)}
+.kpop-page-header .join-btn{color:#fff}
+.kpop-header-back{font-size:clamp(9px,.78vw,14px);white-space:nowrap;text-transform:uppercase;letter-spacing:.08em}
+.kpop-page-header .primary-nav [aria-current=page]{color:var(--red);text-decoration:underline;text-underline-offset:.5em;text-decoration-thickness:1px}
+.kpop-hero{position:relative;isolation:isolate;min-height:710px;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);background:#141113;color:var(--cream);overflow:hidden}
+.kpop-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(112deg,transparent 0 40%,rgba(124,35,31,.2) 100%);z-index:-1}
+.kpop-hero-copy{padding:clamp(68px,7vw,125px) 2vw 96px 6.6%;position:relative;z-index:3}
+.kpop-hero-eyebrow{margin:0 0 25px;color:#dcb7aa;font-size:clamp(10px,.72vw,14px);letter-spacing:.24em;text-transform:uppercase;display:flex;flex-wrap:wrap;gap:18px}
+.kpop-hero-eyebrow span{color:#ae9d95}
+.kpop-hero h1{font-family:var(--serif);text-transform:uppercase;font-weight:500;letter-spacing:-.045em;line-height:.79;font-size:clamp(82px,8.2vw,175px);margin:0 0 30px;max-width:none}
+.kpop-hero h1 em{font-weight:400;font-style:italic;color:#dd5544;text-transform:none}
+.kpop-period{color:#dd5544}
+.kpop-hero-zh{font-size:clamp(16px,1.25vw,23px);font-weight:600;color:#e9d9cc;line-height:1.6;margin:0 0 15px}
+.kpop-hero-intro{font-size:clamp(14px,1vw,19px);line-height:1.85;max-width:44ch;color:#c8b9b0;margin:0 0 32px}
+.kpop-hero-scroll{display:inline-flex;gap:44px;align-items:center;color:var(--cream);border-bottom:1px solid rgba(255,255,255,.46);padding:10px 0;font-size:clamp(11px,.88vw,16px);letter-spacing:.12em;text-transform:uppercase}
+.kpop-hero-scroll span{font-size:25px;line-height:1}
+.kpop-hero-art{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.kpop-wave-lines{position:absolute;inset:-30%;background:repeating-radial-gradient(ellipse at 52% 50%,transparent 0 14px,rgba(222,119,101,.075) 15px 16px,transparent 17px 30px);transform:rotate(-17deg);z-index:-1}
+.kpop-orbit{width:min(74%,530px);aspect-ratio:1;border-radius:50%;background:repeating-radial-gradient(circle at center,#121215 0 6px,#212024 7px 8px,#070709 9px 15px);box-shadow:0 0 0 22px rgba(161,49,38,.15),0 0 0 54px rgba(175,49,38,.075),0 0 110px rgba(0,0,0,.7);display:grid;place-items:center;animation:kpop-orbit-spin 30s linear infinite}
+.kpop-orbit-core{width:38%;aspect-ratio:1;border:2px solid #e4b0a0;border-radius:50%;background:radial-gradient(circle at center,#7e201d,#af352b);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff0e8}
+.kpop-orbit-core strong{font-family:var(--serif);font-size:clamp(25px,2.8vw,59px);font-weight:400;line-height:.96}
+.kpop-orbit-core small{font-size:18px;line-height:1.5}
+.kpop-vertical-type{position:absolute;right:22px;top:50%;writing-mode:vertical-rl;transform:translateY(-50%);font-size:11px;letter-spacing:.2em;color:#b6a29a}
+.kpop-hero-art-caption{position:absolute;left:9%;bottom:42px;font-size:11px;letter-spacing:.19em;color:#ab9188}
+@keyframes kpop-orbit-spin{to{transform:rotate(360deg)}}
+.kpop-intro{display:grid;grid-template-columns:minmax(135px,.3fr) 1fr;gap:7vw;padding:clamp(75px,8vw,165px) 8% clamp(70px,7vw,130px);background:var(--cream)}
+.kpop-intro-index{font-family:var(--serif);font-size:clamp(36px,3vw,62px);color:var(--red);white-space:nowrap}
+.kpop-intro-index span{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.18em;color:#8f7b6e;margin-top:15px}
+.kpop-kicker{font-size:clamp(11px,.78vw,14px);letter-spacing:.23em;text-transform:uppercase;color:var(--red);margin:0 0 21px}
+.kpop-intro-content{max-width:1020px}
+.kpop-intro h2,.kpop-chapters-heading h2{font-family:var(--serif);font-weight:500;letter-spacing:-.045em;line-height:.96;font-size:clamp(42px,5.25vw,104px);text-transform:uppercase;margin:0 0 35px}
+.kpop-intro h2 em,.kpop-chapters-heading h2 em{font-style:italic;color:var(--red);text-transform:none}
+.kpop-intro-content>p:not(.kpop-kicker){max-width:880px;font-size:clamp(15px,1.08vw,20px);line-height:1.95;letter-spacing:.02em;color:#514740;margin:0 0 24px}
+.kpop-intro-content>.kpop-source-note{font-size:clamp(12px,.82vw,15px)!important;color:#81746a!important;padding-left:20px;border-left:2px solid #b43b32;max-width:770px!important}
+.kpop-overview{padding:68px 8% 86px;background:#e8ded1}
+.kpop-section-heading{display:flex;justify-content:space-between;align-items:start;gap:36px;border-bottom:1px solid rgba(75,50,32,.23);padding-bottom:36px}
+.kpop-section-heading>span{font-size:12px;letter-spacing:.2em;color:var(--red)}
+.kpop-section-heading h2{font-family:var(--serif);font-size:clamp(32px,3.3vw,68px);font-weight:400;line-height:.96;text-transform:uppercase;margin:0;text-align:right;color:#25201d}
+.kpop-chapter-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:22px;row-gap:0;margin-top:20px}
+.kpop-chapter-nav a{min-width:0;padding:21px 0;display:flex;align-items:center;gap:13px;border-bottom:1px solid rgba(75,50,32,.19);font-size:clamp(12px,1vw,17px);line-height:1.4;color:#292321;transition:color .2s ease,padding-left .2s ease}
+.kpop-chapter-nav a:hover{color:var(--red);padding-left:5px}
+.kpop-chapter-nav span:first-child{font-family:var(--serif);font-size:clamp(24px,2.1vw,39px);color:var(--red);flex:0 0 auto}
+.kpop-chapter-nav strong{font-weight:500}
+.kpop-chapter-nav span:last-child{font-size:15px;margin-left:auto;color:#a3362d}
+.kpop-chapters{padding:clamp(70px,7vw,145px) 8% clamp(80px,8vw,160px);background-color:var(--cream);background-image:repeating-radial-gradient(ellipse at 28% 20%,transparent 0 24px,rgba(115,92,66,.027) 25px 26px,transparent 27px 48px)}
+.kpop-chapters-heading{max-width:1000px;margin-bottom:65px}
+.kpop-chapters-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 6vw}
+.kpop-chapter{scroll-margin-top:32px;display:grid;grid-template-columns:clamp(52px,5.2vw,95px) minmax(0,1fr);gap:16px;border-top:1px solid rgba(122,88,65,.24);padding:40px 0 66px;min-height:300px}
+.kpop-chapter-number{font-family:var(--serif);font-size:clamp(48px,5vw,100px);line-height:.83;font-weight:400;color:#ac3029}
+.kpop-chapter-kicker{text-transform:uppercase;letter-spacing:.14em;font-size:clamp(10px,.72vw,13px);color:#9f302a;margin:0 0 12px!important}
+.kpop-chapter h3{font-family:var(--serif);font-weight:400;font-size:clamp(27px,2.55vw,53px);line-height:1.1;letter-spacing:-.02em;margin:0 0 18px}
+.kpop-chapter h4{font-family:var(--sans);font-size:clamp(15px,1.2vw,23px);font-weight:600;line-height:1.5;color:#a33028;margin:0 0 17px}
+.kpop-chapter-body>p:not(.kpop-chapter-kicker){font-size:clamp(14px,1.0vw,18px);line-height:1.9;color:#514b45;margin:0;max-width:58ch}
+.kpop-chapter-finale{grid-column:1/-1;grid-template-columns:clamp(52px,5.2vw,95px) minmax(0,1fr);background:rgba(161,49,39,.06);border-top:3px solid #a63129;padding:48px 4% 58px 0;min-height:0}
+.kpop-chapter-finale .kpop-chapter-body{max-width:1000px}
+.kpop-conclusion{background:#9e3029;color:#fff0e8;padding:clamp(80px,8vw,150px) 8% clamp(65px,6vw,100px);position:relative;overflow:hidden}
+.kpop-conclusion:before{content:"";position:absolute;inset:-40%;background:repeating-radial-gradient(circle at 75% 35%,transparent 0 23px,rgba(255,255,255,.06) 24px 25px,transparent 26px 47px)}
+.kpop-conclusion>*{position:relative;z-index:1}
+.kpop-conclusion-index{display:block;font-size:12px;letter-spacing:.22em;margin-bottom:32px}
+.kpop-conclusion h2{font-family:var(--serif);font-size:clamp(46px,6.0vw,126px);font-weight:400;line-height:.92;letter-spacing:-.04em;text-transform:uppercase;margin:0 0 34px}
+.kpop-conclusion h2 em{font-weight:400;font-style:italic;text-transform:none;color:#f6d4b7}
+.kpop-conclusion>p{font-size:clamp(18px,1.55vw,31px);line-height:1.5;margin:0 0 55px}
+.kpop-conclusion-actions{display:flex;align-items:center;flex-wrap:wrap;gap:22px 46px;font-size:12px;text-transform:uppercase;letter-spacing:.12em}
+.kpop-return-link,.kpop-top-link{border-bottom:1px solid rgba(255,255,255,.6);padding-bottom:9px}
+.kpop-footer{min-height:145px;padding-top:30px}
+.kpop-footer small{position:static;grid-column:2/4;text-align:right;margin-top:10px}
+@media (max-width:1250px){
+  .kpop-page-header .header-actions{gap:12px}
+  .kpop-hero{min-height:640px}
+  .kpop-hero h1{font-size:clamp(78px,8.6vw,126px)}
+  .kpop-orbit{width:80%}
+  .kpop-intro{gap:5vw}
+  .kpop-overview,.kpop-chapters,.kpop-conclusion{padding-left:6%;padding-right:6%}
+  .kpop-chapter{gap:12px}
+}
+@media (max-width:1050px){
+  .kpop-hero{min-height:630px;grid-template-columns:54% 46%}
+  .kpop-hero-copy{padding-left:7%;padding-top:85px}
+  .kpop-hero h1{font-size:clamp(70px,9vw,105px)}
+  .kpop-hero-art-caption{font-size:9px}
+  .kpop-intro{grid-template-columns:1fr;gap:28px}
+  .kpop-intro-index{font-size:36px}
+  .kpop-chapter-nav{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpop-chapter{min-height:325px}
+  .kpop-footer nav{gap:12px}
+}
+@media (max-width:799px){
+  .kpop-page-header{background:var(--cream)}
+  .kpop-page-header.open .primary-nav{box-shadow:0 14px 24px rgba(0,0,0,.12)}
+  .kpop-hero{display:flex;flex-direction:column;min-height:0}
+  .kpop-hero-copy{padding:68px 7% 52px}
+  .kpop-hero h1{font-size:clamp(65px,13.5vw,108px)}
+  .kpop-hero-eyebrow{font-size:10px;gap:8px}
+  .kpop-hero-art{height:340px}
+  .kpop-orbit{width:min(64%,290px)}
+  .kpop-orbit-core strong{font-size:clamp(20px,5.2vw,30px)}
+  .kpop-vertical-type{font-size:8px;right:10px}
+  .kpop-hero-art-caption{font-size:9px;left:7%}
+  .kpop-intro{padding:75px 7% 80px;gap:15px}
+  .kpop-intro-index{font-size:30px}
+  .kpop-intro h2,.kpop-chapters-heading h2{font-size:clamp(39px,8.2vw,63px)}
+  .kpop-intro-content>p:not(.kpop-kicker){font-size:15px;line-height:1.9}
+  .kpop-overview{padding:55px 7% 70px}
+  .kpop-section-heading{display:block}
+  .kpop-section-heading h2{text-align:left;margin-top:16px;font-size:36px}
+  .kpop-chapter-nav{grid-template-columns:1fr}
+  .kpop-chapter-nav a{padding:16px 0;font-size:15px}
+  .kpop-chapter-nav span:first-child{font-size:33px}
+  .kpop-chapters{padding:75px 7% 90px}
+  .kpop-chapters-heading{margin-bottom:36px}
+  .kpop-chapters-grid{grid-template-columns:1fr}
+  .kpop-chapter{min-height:0;grid-template-columns:60px minmax(0,1fr);gap:8px;padding:32px 0 48px}
+  .kpop-chapter-number{font-size:60px}
+  .kpop-chapter h3{font-size:32px}
+  .kpop-chapter h4{font-size:16px}
+  .kpop-chapter-body>p:not(.kpop-chapter-kicker){font-size:14px;line-height:1.85}
+  .kpop-chapter-finale{grid-column:1;padding:38px 7% 42px 0}
+  .kpop-conclusion{padding:85px 7% 76px}
+  .kpop-conclusion h2{font-size:clamp(44px,8.5vw,68px)}
+  .kpop-conclusion>p{font-size:20px}
+  .kpop-footer{min-height:210px}
+  .kpop-footer small{position:static;text-align:left;display:block;margin-top:12px}
+}
+@media(max-width:420px){
+  .kpop-hero h1{font-size:clamp(53px,13.4vw,74px)}
+  .kpop-hero-art{height:265px}
+  .kpop-orbit{width:210px}
+  .kpop-intro h2,.kpop-chapters-heading h2{font-size:36px}
+  .kpop-chapter{grid-template-columns:49px minmax(0,1fr);gap:8px}
+  .kpop-chapter-number{font-size:48px}
+  .kpop-chapter h3{font-size:27px}
+  .kpop-section-heading h2{font-size:33px}
+}
+@media(prefers-reduced-motion:reduce){.kpop-orbit{animation:none}}

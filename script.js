@@ -205,7 +205,7 @@ function setArticlesView(isVisible) {
 }
 
 function syncHashView() {
-  const isBrandView = window.location.hash === "#brand-websites";
+  const isBrandView = ["#vanchaun-design", "#brand-websites"].includes(window.location.hash);
   const isArticlesView = window.location.hash === "#articles";
   setBrandWebsiteView(isBrandView);
   setArticlesView(isArticlesView);

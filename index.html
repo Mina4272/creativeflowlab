@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>LYRA Creative Universe</title>
-    <link rel="stylesheet" href="style.css?v=gallery-four-20261026">
-    <script src="script.js?v=gallery-four-20261026" defer></script>
+    <link rel="stylesheet" href="style.css?v=gallery-desktop-20261026">
+    <script src="script.js?v=gallery-desktop-20261026" defer></script>
   </head>
   <body>
     <main class="stage is-zh" aria-label="LYRA Creative Universe">
@@ -120,7 +120,7 @@
           <span>Gallery</span>
         </button>
 
-        <section class="gallery-window" role="dialog" aria-modal="false" aria-labelledby="gallery-title">
+        <section class="gallery-window is-minimized" role="dialog" aria-modal="false" aria-labelledby="gallery-title">
           <header class="gallery-titlebar" data-gallery-drag>
             <h2 id="gallery-title">Gallery</h2>
             <div class="gallery-window-controls">
@@ -130,17 +130,29 @@
             </div>
           </header>
 
+          <div class="gallery-toolbar" aria-label="Gallery tools">
+            <label class="gallery-tool-button">
+              <input type="file" accept="image/*" multiple data-gallery-upload>
+              <span aria-hidden="true">+</span> Upload images
+            </label>
+            <button class="gallery-tool-button" type="button" data-gallery-delete disabled>
+              <span aria-hidden="true">&#128465;</span> Delete selected
+            </button>
+            <span class="gallery-status" data-gallery-status aria-live="polite"></span>
+          </div>
+
           <div class="gallery-grid" aria-label="Gallery images">
-            <button class="gallery-file" type="button"><img src="assets/gallery/gallery-01.jpg?v=mobile-20261026" alt="IMG 8595"><span>IMG_8595</span></button>
-            <button class="gallery-file" type="button"><img src="assets/gallery/gallery-02.jpg?v=mobile-20261026" alt="IMG 8594"><span>IMG_8594</span></button>
-            <button class="gallery-file" type="button"><img src="assets/gallery/gallery-03.jpg?v=mobile-20261026" alt="IMG 8549"><span>IMG_8549</span></button>
-            <button class="gallery-file" type="button"><img src="assets/gallery/gallery-04.jpg?v=mobile-20261026" alt="IMG 8325"><span>IMG_8325</span></button>
+            <button class="gallery-file" type="button" data-gallery-id="gallery-8595" data-gallery-kind="default"><img src="assets/gallery/gallery-01.jpg?v=mobile-20261026" alt="IMG 8595"><span>IMG_8595</span></button>
+            <button class="gallery-file" type="button" data-gallery-id="gallery-8594" data-gallery-kind="default"><img src="assets/gallery/gallery-02.jpg?v=mobile-20261026" alt="IMG 8594"><span>IMG_8594</span></button>
+            <button class="gallery-file" type="button" data-gallery-id="gallery-8549" data-gallery-kind="default"><img src="assets/gallery/gallery-03.jpg?v=mobile-20261026" alt="IMG 8549"><span>IMG_8549</span></button>
+            <button class="gallery-file" type="button" data-gallery-id="gallery-8325" data-gallery-kind="default"><img src="assets/gallery/gallery-04.jpg?v=mobile-20261026" alt="IMG 8325"><span>IMG_8325</span></button>
           </div>
 
           <div class="gallery-viewer" aria-hidden="true">
             <header>
               <span data-gallery-caption>IMG_8595</span>
               <div class="gallery-viewer-actions">
+                <button type="button" data-gallery-delete disabled aria-label="Delete image">&#128465;</button>
                 <button type="button" data-gallery-viewer-close aria-label="Close image">&#215;</button>
               </div>
             </header>

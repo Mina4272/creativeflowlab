@@ -979,8 +979,67 @@ body.is-dark {
   cursor: pointer;
 }
 
+.gallery-toolbar {
+  height: 44px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 3px ridge #d4d4d4;
+  background: linear-gradient(#eeeeee, #c8c8c8);
+}
+
+.gallery-tool-button {
+  height: 31px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 3px ridge #dedede;
+  color: #222;
+  background: #d5d5d5;
+  font: 700 13px/24px "Helvetica Neue", Arial, sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.gallery-tool-button input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+}
+
+.gallery-tool-button:has(input:focus-visible),
+.gallery-tool-button:focus-visible {
+  outline: 2px solid #30208f;
+  outline-offset: 1px;
+}
+
+.gallery-tool-button:disabled {
+  color: #777;
+  cursor: not-allowed;
+  opacity: 0.58;
+}
+
+.gallery-status {
+  min-width: 0;
+  margin-left: auto;
+  overflow: hidden;
+  color: #333;
+  font: 600 12px/1.2 "Courier New", monospace;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gallery-status.is-error {
+  color: #9b1414;
+}
+
 .gallery-grid {
-  height: calc(100% - 54px);
+  height: calc(100% - 98px);
   padding: clamp(18px, 2vw, 34px);
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(122px, 1fr));
@@ -1075,6 +1134,12 @@ body.is-dark {
   display: flex;
   align-items: center;
   gap: 3px;
+}
+
+.gallery-viewer-actions button:disabled {
+  color: #888;
+  cursor: not-allowed;
+  opacity: 0.55;
 }
 
 .gallery-viewer-stage {
@@ -1199,10 +1264,27 @@ body.is-dark {
   }
 
   .gallery-grid {
-    height: calc(100% - 46px);
+    height: calc(100% - 88px);
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px 12px;
     padding: 18px 14px 70px;
+  }
+
+  .gallery-toolbar {
+    height: 42px;
+    padding: 4px 6px;
+    gap: 5px;
+  }
+
+  .gallery-tool-button {
+    height: 30px;
+    padding: 0 8px;
+    gap: 4px;
+    font-size: 11px;
+  }
+
+  .gallery-status {
+    display: none;
   }
 
   .gallery-viewer {

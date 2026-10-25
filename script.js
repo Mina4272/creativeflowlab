@@ -14,15 +14,9 @@ const galleryGrid = document.querySelector(".gallery-grid");
 const galleryViewer = document.querySelector(".gallery-viewer");
 const galleryViewerImage = document.querySelector("[data-gallery-viewer-image]");
 const galleryCaption = document.querySelector("[data-gallery-caption]");
-const galleryUploadInput = document.querySelector("[data-gallery-upload]");
-const galleryDeleteButtons = [...document.querySelectorAll("[data-gallery-delete]")];
-const galleryStatus = document.querySelector("[data-gallery-status]");
-let galleryFiles = [...document.querySelectorAll(".gallery-file")];
+const galleryFiles = [...document.querySelectorAll(".gallery-file")];
 const themeStorageKey = "lyra-light-mode";
 const languageStorageKey = "lyra-language-v2";
-const galleryDeletedStorageKey = "lyra-gallery-deleted-defaults-v1";
-const galleryDatabaseName = "lyra-gallery-v1";
-const galleryStoreName = "images";
 const darkImageTargets = [
   {
     elements: document.querySelectorAll(".portrait-scene img"),
@@ -37,10 +31,7 @@ const darkImageTargets = [
 let audioUnlocked = false;
 let lastPopAt = 0;
 let activeGalleryIndex = 0;
-let activeGalleryId = null;
 let galleryDrag = null;
-let galleryDatabasePromise = null;
-const galleryObjectUrls = new Map();
 
 function makeSoundCopy() {
   const sound = popSound.cloneNode(true);
@@ -222,209 +213,10 @@ function setArticlesView(isVisible) {
   articlesView.style.display = isVisible ? "block" : "none";
 }
 
-function setGalleryStatus(message, isError = false) {
-  if (!galleryStatus) {
-    return;
-  }
-
-  galleryStatus.textContent = message;
-  galleryStatus.classList.toggle("is-error", isError);
-}
-
-function refreshGalleryFiles() {
-  galleryFiles = [...document.querySelectorAll(".gallery-file")];
-  galleryFiles.forEach((file, index) => {
-    file.dataset.galleryIndex = String(index);
-  });
-}
-
 function setGallerySelection(file) {
-  activeGalleryId = file?.dataset.galleryId || null;
   galleryFiles.forEach((item) => {
     item.classList.toggle("is-selected", item === file);
   });
-  galleryDeleteButtons.forEach((button) => {
-    button.disabled = !file;
-  });
-}
-
-function readDeletedGalleryDefaults() {
-  try {
-    const stored = JSON.parse(localStorage.getItem(galleryDeletedStorageKey) || "[]");
-    return Array.isArray(stored) ? new Set(stored) : new Set();
-  } catch {
-    return new Set();
-  }
-}
-
-function saveDeletedGalleryDefaults(ids) {
-  localStorage.setItem(galleryDeletedStorageKey, JSON.stringify([...ids]));
-}
-
-function openGalleryDatabase() {
-  if (!galleryDatabasePromise) {
-    galleryDatabasePromise = new Promise((resolve, reject) => {
-      const request = indexedDB.open(galleryDatabaseName, 1);
-      request.onupgradeneeded = () => {
-        const database = request.result;
-        if (!database.objectStoreNames.contains(galleryStoreName)) {
-          database.createObjectStore(galleryStoreName, { keyPath: "id" });
-        }
-      };
-      request.onsuccess = () => resolve(request.result);
-      request.onerror = () => reject(request.error);
-    });
-  }
-
-  return galleryDatabasePromise;
-}
-
-async function readUploadedGalleryImages() {
-  const database = await openGalleryDatabase();
-  return new Promise((resolve, reject) => {
-    const request = database.transaction(galleryStoreName, "readonly").objectStore(galleryStoreName).getAll();
-    request.onsuccess = () => resolve(request.result.sort((a, b) => a.createdAt - b.createdAt));
-    request.onerror = () => reject(request.error);
-  });
-}
-
-async function saveUploadedGalleryImage(image) {
-  const database = await openGalleryDatabase();
-  return new Promise((resolve, reject) => {
-    const request = database.transaction(galleryStoreName, "readwrite").objectStore(galleryStoreName).put(image);
-    request.onsuccess = () => resolve();
-    request.onerror = () => reject(request.error);
-  });
-}
-
-async function removeUploadedGalleryImage(id) {
-  const database = await openGalleryDatabase();
-  return new Promise((resolve, reject) => {
-    const request = database.transaction(galleryStoreName, "readwrite").objectStore(galleryStoreName).delete(id);
-    request.onsuccess = () => resolve();
-    request.onerror = () => reject(request.error);
-  });
-}
-
-function galleryLabelFromName(name) {
-  return name.replace(/\.[^.]+$/, "").slice(0, 48) || "uploaded_image";
-}
-
-function createUploadedGalleryFile(image) {
-  const file = document.createElement("button");
-  const thumbnail = document.createElement("img");
-  const label = document.createElement("span");
-  const objectUrl = URL.createObjectURL(image.blob);
-
-  galleryObjectUrls.set(image.id, objectUrl);
-  file.className = "gallery-file";
-  file.type = "button";
-  file.dataset.galleryId = image.id;
-  file.dataset.galleryKind = "uploaded";
-  thumbnail.src = objectUrl;
-  thumbnail.alt = image.name;
-  label.textContent = galleryLabelFromName(image.name);
-  file.append(thumbnail, label);
-  return file;
-}
-
-async function initializeGalleryStorage() {
-  if (!galleryGrid) {
-    return;
-  }
-
-  const deletedDefaults = readDeletedGalleryDefaults();
-  galleryFiles.forEach((file) => {
-    if (deletedDefaults.has(file.dataset.galleryId)) {
-      file.remove();
-    }
-  });
-
-  try {
-    const uploadedImages = await readUploadedGalleryImages();
-    uploadedImages.forEach((image) => galleryGrid.append(createUploadedGalleryFile(image)));
-  } catch {
-    setGalleryStatus("Uploads are unavailable in this browser.", true);
-  }
-
-  refreshGalleryFiles();
-}
-
-async function uploadGalleryImages(files) {
-  const images = [...files].filter((file) => file.type.startsWith("image/"));
-
-  if (!images.length) {
-    setGalleryStatus("Choose an image file.", true);
-    return;
-  }
-
-  setGalleryStatus("Uploading...");
-  let uploadedCount = 0;
-
-  try {
-    for (const imageFile of images) {
-      const id = `upload-${Date.now()}-${crypto.randomUUID?.() || Math.random().toString(36).slice(2)}`;
-      const image = {
-        id,
-        name: imageFile.name,
-        type: imageFile.type,
-        blob: imageFile,
-        createdAt: Date.now() + uploadedCount,
-      };
-      await saveUploadedGalleryImage(image);
-      galleryGrid.append(createUploadedGalleryFile(image));
-      uploadedCount += 1;
-    }
-
-    refreshGalleryFiles();
-    setGalleryStatus(`${uploadedCount} image${uploadedCount === 1 ? "" : "s"} uploaded.`);
-  } catch {
-    setGalleryStatus("The upload could not be saved.", true);
-  }
-}
-
-async function deleteSelectedGalleryImage() {
-  const file = galleryFiles.find((item) => item.dataset.galleryId === activeGalleryId);
-  if (!file) {
-    return;
-  }
-
-  const label = file.querySelector("span")?.textContent || "this image";
-  if (!window.confirm(`Delete ${label}?`)) {
-    return;
-  }
-
-  const removedIndex = galleryFiles.indexOf(file);
-
-  try {
-    if (file.dataset.galleryKind === "uploaded") {
-      await removeUploadedGalleryImage(activeGalleryId);
-      const objectUrl = galleryObjectUrls.get(activeGalleryId);
-      if (objectUrl) {
-        URL.revokeObjectURL(objectUrl);
-        galleryObjectUrls.delete(activeGalleryId);
-      }
-    } else {
-      const deletedDefaults = readDeletedGalleryDefaults();
-      deletedDefaults.add(activeGalleryId);
-      saveDeletedGalleryDefaults(deletedDefaults);
-    }
-
-    file.remove();
-    refreshGalleryFiles();
-    activeGalleryId = null;
-
-    if (galleryFiles.length && galleryViewer?.classList.contains("is-open")) {
-      openGalleryImage(Math.min(removedIndex, galleryFiles.length - 1));
-    } else {
-      closeGalleryImage();
-      setGallerySelection(null);
-    }
-
-    setGalleryStatus(`${label} deleted.`);
-  } catch {
-    setGalleryStatus("The image could not be deleted.", true);
-  }
 }
 
 function setGalleryView(isVisible) {
@@ -498,7 +290,6 @@ function syncHashView() {
 setLightMode(readLightMode());
 setLanguage(readLanguage());
 syncHashView();
-initializeGalleryStorage();
 
 if (lightToggle) {
   lightToggle.addEventListener("click", () => {
@@ -525,15 +316,6 @@ galleryGrid?.addEventListener("click", (event) => {
   }
 
   openGalleryImage(galleryFiles.indexOf(file));
-});
-
-galleryUploadInput?.addEventListener("change", async () => {
-  await uploadGalleryImages(galleryUploadInput.files || []);
-  galleryUploadInput.value = "";
-});
-
-galleryDeleteButtons.forEach((button) => {
-  button.addEventListener("click", deleteSelectedGalleryImage);
 });
 
 document.querySelectorAll("[data-gallery-open]").forEach((button) => {

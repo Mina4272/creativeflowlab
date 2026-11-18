@@ -208,8 +208,8 @@ body.is-dark {
 }
 
 .nav-vizion {
-  left: 11.6%;
-  width: 13.1%;
+  left: 59.55%;
+  width: 17.35%;
 }
 
 .nav-calendar {
@@ -228,8 +228,8 @@ body.is-dark {
 }
 
 .nav-brand {
-  left: 59.55%;
-  width: 17.35%;
+  left: 11.6%;
+  width: 13.1%;
 }
 
 .nav-articles {
@@ -528,10 +528,10 @@ body.is-dark {
 }
 
 .folder-vizion {
-  left: 11.6%;
-  top: 26.35%;
-  width: 17.2%;
-  transform: rotate(8deg);
+  left: 8.8%;
+  top: 64.05%;
+  width: 16.3%;
+  transform: rotate(-5deg);
 }
 
 .folder-calendar {
@@ -555,10 +555,10 @@ body.is-dark {
 }
 
 .folder-brand {
-  left: 8.8%;
-  top: 64.05%;
-  width: 16.3%;
-  transform: rotate(-5deg);
+  left: 11.6%;
+  top: 26.35%;
+  width: 17.2%;
+  transform: rotate(8deg);
 }
 
 .folder-articles {

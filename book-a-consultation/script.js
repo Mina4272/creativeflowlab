@@ -1,7 +1,7 @@
 const form = document.querySelector("#consultation-form");
 const statusElement = document.querySelector("#form-status");
 
-const FORM_ENDPOINT = "https://formsubmit.co/ajax/yuchieh4272@gmail.com";
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/admin@creativeflowlab.org";
 
 function setStatus(message, type = "") {
   if (!statusElement) return;
